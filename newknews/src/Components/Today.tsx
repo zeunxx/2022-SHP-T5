@@ -5,15 +5,13 @@ const Wrapper = styled.div`
   width: 1000px;
   margin: 0px auto;
   min-width: 800px;
-  background-color: yellow;
+  //background-color: yellow;
 `;
 
 function Today() {
   return (
     <>
-      <Wrapper>
-        <h1>tetttt</h1>
-      </Wrapper>
+      <Wrapper></Wrapper>
     </>
   );
 }

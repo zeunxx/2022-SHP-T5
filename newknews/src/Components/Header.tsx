@@ -7,34 +7,22 @@ const Wrapper = styled.div`
 `;
 
 const HdTop = styled.div`
-  background-color: #d7e6e5;
+  //background-color: #70b4b0;
   position: relative;
   height: 68px;
   text-align: center;
 `;
 
-const Logo = styled.span`
-  background-color: #4b89dc;
-  font-size: 36px;
-  position: absolute;
-  top: 16px;
-  left: 0;
-`;
-
 const HdNav = styled.div`
-  background-color: #bcbab5;
+  //background-color: #bcbab5;
   height: 68px;
 `;
 
 function Header() {
   return (
     <Wrapper>
-      <HdTop>
-        <Logo>NewKnews</Logo>
-      </HdTop>
-      <HdNav>
-        <h1>nav바</h1>
-      </HdNav>
+      <HdTop></HdTop>
+      <HdNav></HdNav>
     </Wrapper>
   );
 }
