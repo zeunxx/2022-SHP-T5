@@ -10,13 +10,16 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
+    "framer-motion": "^7.6.5",
     "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.2",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "recoil": "^0.7.6",
+    "slick-carousel": "^1.8.1",
     "styled-component": "^2.8.0",
     "styled-components": "^5.3.6",
     "typescript": "^4.8.4",
@@ -26,9 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "eject": "react-scripts eject"
   },
   "proxy":"http://localhost:8080",
   "eslintConfig": {
@@ -50,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-slick": "^0.23.10",
     "@types/styled-components": "^5.1.26"
   }
 }
