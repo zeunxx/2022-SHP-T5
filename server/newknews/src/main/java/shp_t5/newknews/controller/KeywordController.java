@@ -1,5 +1,7 @@
 package shp_t5.newknews.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@Api(tags = {"Keyword API"})
 @CrossOrigin(origins="http://localhost:3000", methods={RequestMethod.GET, RequestMethod.POST})
 public class KeywordController {
     List<KeywordDto> listKeywordDto = new ArrayList<>();
@@ -36,6 +39,7 @@ public class KeywordController {
 
     }
 
+    @ApiOperation(value = "키워드 전송", notes = "키워드 csv파일에서 우선순위와 키워드를 제공하는 API입니다.")
     @GetMapping("getKeyword")
     public List<KeywordDto> getKeyword(){
         return listKeywordDto;

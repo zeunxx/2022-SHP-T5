@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import axios from 'axios'
 import React, {useState, useEffect} from "react";
-
+// import searchBtn from '../Style/search.css';
 
 
 const Search_bar=()=>{
@@ -9,36 +9,30 @@ const Search_bar=()=>{
     const [query, setQuery] =useState('')
 
     useEffect(()=>{
-        geturl();
-        let completed = false;
-        async function get(){
-            const result = await(axios(`http://localhost:8080/getNewsTitle?title=${query}`))
-            console.log(result)
-            if(!completed){
-                setData(result.data);
-            }
-          
-        }
-        get()
-        return () => {
-            completed = true
-        }
         
     },[query]);
+
+    
+
     async function  geturl () {
+        let completed = false;
         await axios
         .get(`http://localhost:8080/getNewsTitle?title=${query}`)
         .then((response)=>{
             console.log(response.data);
+            setData(response.data);
+
         })
         .catch((error)=>{
             console.log(error);
         });
+
     }
     return(
         <>
-            <input value={query}
+            <input className="searchInput" value={query}
                 onChange={e => setQuery(e.target.value)} />
+            <button type="button" className="searchBtn" onClick={geturl}><span>검색</span></button>
             <ul>
                 {data.listNews.map(item =>(  
                     <li >
