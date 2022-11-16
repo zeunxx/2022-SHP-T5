@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   width: 1000px;
   margin: 0px auto;
   min-width: 800px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 500px;
   //background-color: #89b2e9;
 `;
@@ -51,31 +51,6 @@ const Nownews = styled.div`
   }
 `;
 
-const SliderBox = styled.div`
-  //background-color: orange;
-  height: 90px;
-`;
-
-const NewsBox = styled.div`
-  height: 300px;
-  //border: 1px solid #c4c4c4;
-`;
-
-const News = styled.div`
-  //background-color: #8d79cb;
-  border: 1px solid #c4c4c4;
-  height: 100%;
-  width: 680px;
-  float: left;
-`;
-const Side = styled.div`
-  //background-color: #d08c8c;
-  border: 1px solid #c4c4c4;
-  height: 100%;
-  width: 300px;
-  float: right;
-`;
-
 function Today() {
   return (
     <>
@@ -90,13 +65,7 @@ function Today() {
         <Nownews>
           <p>분석기준 </p>2022.11.14(월) 08:00 ~ 17:00
         </Nownews>
-        <SliderBox>
-          <Clustering />
-        </SliderBox>
-        <NewsBox>
-          <News></News>
-          <Side></Side>
-        </NewsBox>
+        <Clustering />
       </Wrapper>
     </>
   );

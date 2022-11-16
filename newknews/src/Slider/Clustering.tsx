@@ -2,11 +2,20 @@ import Slider from "react-slick";
 import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Box = styled.div`
+const Wrapper = styled.div`
+  //background-color: aqua;
+  height: 420px;
+  :first-child {
+    background-color: white;
+  }
+`;
+
+const Box = styled.div<{ backColor: boolean }>`
   height: 70px;
-  //background-color: #edabab;
+  background-color: ${(props) => (props.backColor ? "#0475E6" : "white")};
+  color: ${(props) => (props.backColor ? "white" : "black")};
   padding: 10px;
   border-left: 1px solid #c4c4c4;
   text-overflow: ellipsis;
@@ -14,13 +23,39 @@ const Box = styled.div`
   font-weight: 500;
   p {
     font-size: 11px;
-    color: #818181;
-    padding-top: 3px;
+    color: ${(props) => (props.backColor ? "	#EEA257" : "#818181")};
+    padding-top: 5px;
+  }
+  &:hover {
+    color: #c3c3c3;
   }
 `;
 
-const Wrapper = styled.div`
+const NewsBox = styled.div`
+  //background-color: #f7b1b1;
+  height: 330px;
+  margin-top: 10px;
+`;
+
+const SliderBox = styled.div`
   border: 1px solid #c4c4c4;
+  //background-color: #a5fdb2;
+`;
+
+const News = styled.div`
+  //background-color: #8d79cb;
+  border: 1px solid #c4c4c4;
+  height: 330px;
+  width: 680px;
+  float: left;
+`;
+
+const Side = styled.div`
+  //background-color: #d08c8c;
+  border: 1px solid #c4c4c4;
+  height: 330px;
+  width: 300px;
+  float: right;
 `;
 
 const testitem = [
@@ -95,26 +130,39 @@ const Clustering = () => {
     ),
   };
 
-  const [btnActive, setBtnActive] = useState();
+  const [box, setBox] = useState<number>(1);
+  const [toggle, setToggle] = useState([true, ...Array(9).fill(false)]);
 
-  const BoxClick = (event: any) => {
-    setBtnActive((prev) => {
-      console.log(event.target.value);
-      return event.target.value;
-    });
-  };
+  useEffect(() => {
+    console.log(box);
+    setToggle([...Array(box).fill(false), true, ...Array(9 - box).fill(false)]);
+    console.log(toggle);
+  }, [box]);
 
   return (
-    <Wrapper>
-      <Slider {...settings}>
-        {testitem.map((item) => (
-          <Box onClick={BoxClick}>
-            {item.name}
-            <p>{item.count}건</p>
-          </Box>
-        ))}
-      </Slider>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <SliderBox>
+          <Slider {...settings}>
+            {testitem.map((item) => (
+              <Box
+                backColor={toggle[item.index - 1]}
+                onClick={() => {
+                  setBox(item.index - 1);
+                }}
+              >
+                {item.name}
+                <p>{item.count}건</p>
+              </Box>
+            ))}
+          </Slider>
+        </SliderBox>
+        <NewsBox>
+          <News>{box}</News>
+          <Side></Side>
+        </NewsBox>
+      </Wrapper>
+    </>
   );
 };
 
