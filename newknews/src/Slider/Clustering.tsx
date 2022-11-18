@@ -3,6 +3,8 @@ import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
+import Weather from "../Components/Weather";
+import ApexCharts from "react-apexcharts";
 
 const Wrapper = styled.div`
   //background-color: aqua;
@@ -417,20 +419,18 @@ const testitem = [
   },
 ];
 
-let count = [...Array(10).fill(0)];
-const CheckItem = () => {
-  testitem.map((item) => {
-    count[item.index - 1] += 1;
-  });
-  //console.log(count);
-  count = [0, ...count.slice(0, 9)];
-  count.map((item, index) => {
-    if (index !== 0) {
-      count[index] += count[index - 1];
-    }
-  });
-  //console.log(count);
-};
+const testkeyword = [
+  { index: 1, keyword: ["폴란드", "우크라", "나토"], count: [54, 33, 21] },
+  { index: 2, keyword: ["수능", "코로나", "2023"], count: [44, 32, 14] },
+  { index: 3, keyword: ["명단", "이태원", "민주당"], count: [56, 21, 3] },
+  { index: 4, keyword: ["이준석", "팔짱", "장경태"], count: [43, 12, 5] },
+  { index: 5, keyword: ["정진상", "민주당", "구속영상"], count: [54, 23, 22] },
+  { index: 6, keyword: ["백신", "고궁", "확진"], count: [43, 19, 8] },
+  { index: 7, keyword: ["노웅래", "압수수색", "검찰"], count: [39, 32, 23] },
+  { index: 8, keyword: ["트럼프", "은퇴자", "민주당"], count: [19, 12, 7] },
+  { index: 9, keyword: ["이상민", "경찰", "특수본"], count: [18, 13, 2] },
+  { index: 10, keyword: ["국회", "행안위", "전액삭감"], count: [9, 8, 5] },
+];
 
 const NextBtn = styled.button`
   //border: 1.5px solid #c7c7c7;
@@ -541,20 +541,37 @@ const Press2 = styled.span`
 
 const Side = styled.div`
   //background-color: #d08c8c;
-  border: 1px solid #c4c4c4;
+  //border: 1px solid #c4c4c4;
   height: 300px;
   width: 300px;
   float: right;
 `;
 
-const Weather = styled.div`
-  //background-color: red;
+const WeatherBox = styled.div`
+  //background-color: #e0b2b2;
+  border: 1px solid #c4c4c4;
   width: 100%;
-  height: 35%;
+  height: 32%;
+  margin-bottom: 3%;
+`;
+
+const Now = styled.div`
+  padding-left: 8%;
+  padding-top: 5%;
+  font-size: 14px;
+  //background-color: orange;
+  font-weight: 600;
+  span {
+    padding-left: 5px;
+    font-size: 11px;
+    font-weight: 300;
+    color: #9b9b9b;
+  }
 `;
 
 const KeyWord = styled.div`
-  //background-color: blue;
+  border: 1px solid #c4c4c4;
+  background-color: aliceblue;
   width: 100%;
   height: 65%;
 `;
@@ -578,6 +595,7 @@ const Clustering = () => {
   const [toggle, setToggle] = useState([true, ...Array(9).fill(false)]);
   const [result, setResult] = useState([...Array(10).fill(0)]);
   const [check, setCheck] = useState([...Array(10).fill(0)]);
+  const [date, setDate] = useState([...Array(3).fill("")]);
 
   useEffect(() => {
     //console.log(box);
@@ -601,6 +619,14 @@ const Clustering = () => {
       });
       return count;
     });
+  }, []);
+
+  useEffect(() => {
+    const now = new Date();
+    const year = "" + now.getFullYear();
+    const month = ("0" + (now.getMonth() + 1)).slice(-2);
+    const day = ("0" + now.getDate()).slice(-2);
+    setDate([year, month, day]);
   }, []);
 
   return (
@@ -640,8 +666,40 @@ const Clustering = () => {
             </MainRight>
           </News>
           <Side>
-            <Weather></Weather>
-            <KeyWord></KeyWord>
+            <WeatherBox>
+              <Now>
+                오늘의 날씨
+                <span>
+                  {date[0] + "년 " + date[1] + "월 " + date[2] + "일"}
+                </span>
+              </Now>
+              <Weather />
+            </WeatherBox>
+            <KeyWord>
+              <ApexCharts
+                type="bar"
+                options={{
+                  xaxis: {
+                    categories: testkeyword[box].keyword,
+                  },
+                  yaxis: {
+                    show: true,
+                  },
+                  plotOptions: {
+                    bar: {
+                      distributed: true,
+                    },
+                  },
+                  colors: ["#0458e6", "#048fe6", "#04AAE6"],
+                }}
+                series={[
+                  {
+                    name: "빈도 수",
+                    data: testkeyword[box].count,
+                  },
+                ]}
+              ></ApexCharts>
+            </KeyWord>
           </Side>
         </NewsBox>
       </Wrapper>
