@@ -5,15 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="react + spring">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2022-11-07__2_24__________.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2022-11-07_오후_2_24,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WebSite/main.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/article_crawling_with_company_name_and_thumbnails.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum_221105.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article_for_keyword_count.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article_with_link_sample.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustering.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/crawling_daum.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num_backup.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07__2_24__________.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07_오후_2_24,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/NewknewsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/NewknewsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="b6e6b46ea469b6c6b36c912cf649de7ed74557f7" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,11 +67,19 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/WorkingSpace/nodejs",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/gimtaehyun/WebstormProjects/2022-SHP-T5/data/Crawling",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "모듈",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -92,11 +107,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.C:/Users/coast/IdeaProjects/webSite/server/newknews/build.gradle" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -106,6 +116,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667200842423</updated>
+      <workItem from="1668064904178" duration="298000" />
+      <workItem from="1668066297412" duration="438000" />
+      <workItem from="1668575277747" duration="233000" />
+      <workItem from="1668575667901" duration="1000" />
+      <workItem from="1668743885624" duration="518000" />
+      <workItem from="1669011943031" duration="429000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1667200892704</created>
@@ -123,6 +139,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
