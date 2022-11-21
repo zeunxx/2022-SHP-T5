@@ -5,21 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="react + spring">
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+
+      <change afterPath="$PROJECT_DIR$/data/Crawling/article_crawling_with_company_name_and_thumbnails.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum_221105.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article_for_keyword_count.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article_with_link_sample.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/clustering.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/crawling_daum.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num_backup.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07__2_24__________.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07_오후_2_24,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/newknews/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newknews/src/Components/Issue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/src/Components/Issue.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newknews/src/Components/Search_bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/src/Components/Search_bar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newknews/src/Routes/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/src/Routes/Search.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/newknews/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/controller/KeywordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/controller/KeywordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webSite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="b6e6b46ea469b6c6b36c912cf649de7ed74557f7" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,10 +66,24 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20221121_0001",
-    "last_opened_file_path": "C:/Users/82105/OneDrive/바탕 화면/산협프 newknews/2022-SHP-T5/server/newknews",
-    "nodejs_package_manager_path": "npm"
+    "last_opened_file_path": "/Users/gimtaehyun/WebstormProjects/2022-SHP-T5/data/Crawling",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+
   }
 }]]></component>
   <component name="RecentsManager">
@@ -94,12 +111,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.C:/Users/coast/IdeaProjects/webSite/server/newknews/build.gradle" />
-        <item itemvalue="Gradle.C:/Users/coast/IdeaProjects/webSite/server/newknews/build.gradle" />
-      </list>
-    </recent_temporary>
+
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,7 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667200842423</updated>
-      <workItem from="1668997659211" duration="649000" />
+
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1667200892704</created>
