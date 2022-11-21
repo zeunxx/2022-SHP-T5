@@ -4,20 +4,22 @@ import React, {useState, useEffect} from "react";
 // import searchBtn from '../Style/search.css';
 
 
-const Search_bar=()=>{
+const Search_bar=(props:any)=>{
     const [data, setData] =useState({listNews:[] })
     const [query, setQuery] =useState('')
-
-    useEffect(()=>{
-        
-    },[query]);
-
     
+    
+    useEffect(()=>{
+        geturl()
+    },[props.search_content]);
+
+
+
 
     async function  geturl () {
         let completed = false;
         await axios
-        .get(`http://localhost:8080/getNewsTitle?title=${query}`)
+        .get(`http://localhost:8080/getNewsTitle?title=${props.search_content}`)
         .then((response)=>{
             console.log(response.data);
             setData(response.data);
@@ -25,24 +27,24 @@ const Search_bar=()=>{
         })
         .catch((error)=>{
             console.log(error);
+            console.log(props.name)
         });
 
     }
     return(
         <>
-            <input className="searchInput" value={query}
-                onChange={e => setQuery(e.target.value)} />
-            <button type="button" className="searchBtn" onClick={geturl}><span>검색</span></button>
-            <ul>
-                {data.listNews.map(item =>(  
-                    <li >
-                        <a href={item.url}>{item.title}</a>
+        {props.search_content}
+        <ul>
+                 {data.listNews.map(item =>(  
+                    <li>
+                        {/* {item.title} */}
+                        <a href={item.url}>{item.title}</a> 
                     </li>
                 ))}
             </ul>
         </>
+        
     )
 }
-
 
 export default Search_bar;

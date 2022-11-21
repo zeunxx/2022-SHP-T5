@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="react + spring">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2022-11-07__2_24__________.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/2022-11-07_오후_2_24,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/WebSite/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/NewknewsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/NewknewsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07__2_24__________.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07_오후_2_24,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newknews/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newknews/src/Components/Issue.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/src/Components/Issue.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newknews/src/Components/Search_bar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/src/Components/Search_bar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newknews/src/Routes/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/newknews/src/Routes/Search.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/newknews/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/controller/KeywordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/java/shp_t5/newknews/controller/KeywordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/newknews/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/server/newknews/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webSite.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,14 +63,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/WorkingSpace/nodejs",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+    "WebServerToolWindowFactoryState": "false",
+    "com.google.cloudcode.ide_session_index": "20221121_0001",
+    "last_opened_file_path": "C:/Users/82105/OneDrive/바탕 화면/산협프 newknews/2022-SHP-T5/server/newknews",
+    "nodejs_package_manager_path": "npm"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -95,6 +97,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.C:/Users/coast/IdeaProjects/webSite/server/newknews/build.gradle" />
+        <item itemvalue="Gradle.C:/Users/coast/IdeaProjects/webSite/server/newknews/build.gradle" />
       </list>
     </recent_temporary>
   </component>
@@ -106,6 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667200842423</updated>
+      <workItem from="1668997659211" duration="649000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1667200892704</created>
@@ -123,6 +127,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
