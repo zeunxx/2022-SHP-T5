@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="react + spring">
+
       <change afterPath="$PROJECT_DIR$/data/Crawling/article_crawling_with_company_name_and_thumbnails.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum_221105.csv" afterDir="false" />
@@ -21,6 +22,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07__2_24__________.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07_오후_2_24,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +66,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -80,6 +83,7 @@
     "settings.editor.selected.configurable": "preferences.fileTypes",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
+
   }
 }]]></component>
   <component name="RecentsManager">
@@ -107,6 +111,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,12 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667200842423</updated>
-      <workItem from="1668064904178" duration="298000" />
-      <workItem from="1668066297412" duration="438000" />
-      <workItem from="1668575277747" duration="233000" />
-      <workItem from="1668575667901" duration="1000" />
-      <workItem from="1668743885624" duration="518000" />
-      <workItem from="1669011943031" duration="429000" />
+
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1667200892704</created>

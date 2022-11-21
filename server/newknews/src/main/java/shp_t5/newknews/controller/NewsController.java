@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @Api(tags = {"News API"})
-@CrossOrigin(origins="http://localhost:3000", methods={RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST})
 public class NewsController {
 
     List<TestNewsDto> listTestNewsDto = new ArrayList<>();
@@ -56,7 +56,6 @@ public class NewsController {
     @ApiOperation(value = "뉴스 키워드로 검색", notes = "뉴스 csv파일내 키워드 글자가 들어있는 헤드라인을 필터링해 제공하는 뉴스 검색API입니다.")
     @GetMapping("getNewsTitle")
     public NewsListDto getNewsTile(String title){
-
         List<TestNewsDto> filteredNews = listTestNewsDto.stream()
                 .filter(n -> n.title.contains(title))
                 .collect(Collectors.toList());
