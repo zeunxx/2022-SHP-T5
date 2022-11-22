@@ -5,16 +5,12 @@ import React, {useState, useEffect} from "react";
 
 
 const Search_bar=(props:any)=>{
-    const [data, setData] =useState({listNews:[] })
-    const [query, setQuery] =useState('')
-    
+    const [data, setData] =useState({listNews:[]})
     
     useEffect(()=>{
         geturl()
-    },[props.search_content]);
-
-
-
+    },[]);
+    
 
     async function  geturl () {
         let completed = false;
@@ -23,21 +19,22 @@ const Search_bar=(props:any)=>{
         .then((response)=>{
             console.log(response.data);
             setData(response.data);
-
+            console.log(data)
         })
         .catch((error)=>{
             console.log(error);
             console.log(props.name)
         });
+        console.log(data)
 
     }
     return(
         <>
-        {props.search_content}
-        <ul>
-                 {data.listNews.map(item =>(  
+        
+            <ul>
+                {/* <li>{data.url}</li> */}
+                {data.listNews.map(item =>(  
                     <li>
-                        {/* {item.title} */}
                         <a href={item.url}>{item.title}</a> 
                     </li>
                 ))}

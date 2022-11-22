@@ -19,9 +19,5 @@ public class NewsDto {
     public String news_link; //기사 링크
     @ApiModelProperty(value = "긍부정")
     public int discuss;
-    @ApiModelProperty(value = "키워드")
-    public String keyword;
-    @ApiModelProperty(value = "빈도")
-    public String freq;
 
 }
