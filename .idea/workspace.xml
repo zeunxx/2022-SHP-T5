@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="크롤링 형식 변경된 파일 추가">
+    <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="react + springi">
+      <change afterPath="$PROJECT_DIR$/data/Crawling/korean_stopwords.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Crawling/crawling_daum.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/Crawling/crawling_daum.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webSite.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Crawling/todays_keyword.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="b6e6b46ea469b6c6b36c912cf649de7ed74557f7" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,6 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667200842423</updated>
       <workItem from="1669187478471" duration="763000" />
+      <workItem from="1669220405171" duration="1819000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1667200892704</created>
@@ -138,7 +141,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/Crawling" />
                       </list>
                     </value>
                   </entry>
@@ -154,5 +157,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="react + spring" />
     <option name="LAST_COMMIT_MESSAGE" value="react + spring" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/2022_SHP_T5$todays_keyword.coverage" NAME="todays_keyword Coverage Results" MODIFIED="1669220477749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/Crawling" />
   </component>
 </project>
