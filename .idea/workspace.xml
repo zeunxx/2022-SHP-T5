@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="react + spring">
-
-      <change afterPath="$PROJECT_DIR$/data/Crawling/article_crawling_with_company_name_and_thumbnails.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/article_daum_221105.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article_for_keyword_count.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/clustered_article_with_link_sample.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/clustering.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/crawling_daum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/test.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/Crawling/todays_keyword_by_cluster_num_backup.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07__2_24__________.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-11-07_오후_2_24,_업데이트_전에_커밋되지_않은_변경_내용_[변경]/shelved.patch" beforeDir="false" />
+    <list default="true" id="be824b42-0e50-4a19-bb77-0b12619d4aee" name="변경" comment="크롤링 형식 변경된 파일 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/data/Crawling/crawling_daum.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/Crawling/crawling_daum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webSite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/webSite.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,33 +44,33 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GtHDYhs6tWHQEz3R9fOq3JZaZy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/gimtaehyun/WebstormProjects/2022-SHP-T5/data/Crawling",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
-
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/gimtaehyun/WebstormProjects/2022-SHP-T5/data/Crawling&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\coast\IdeaProjects\webSite\.idea\WebSite" />
@@ -111,7 +96,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -121,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667200842423</updated>
-
+      <workItem from="1669187478471" duration="763000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1667200892704</created>
