@@ -7,8 +7,6 @@ news_categories = {
     "사회": "society",
     "정치": "politics",
     "경제": "economic",
-    "국제": "foreign",
-    "문화": "culture",
     "스포츠": "sports",
 }
 
