@@ -591,7 +591,7 @@ const Clustering = () => {
     ),
   };
 
-  const [box, setBox] = useState<number>(1);
+  const [box, setBox] = useState<number>(0);
   const [toggle, setToggle] = useState([true, ...Array(9).fill(false)]);
   const [result, setResult] = useState([...Array(10).fill(0)]);
   const [check, setCheck] = useState([...Array(10).fill(0)]);

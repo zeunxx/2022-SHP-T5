@@ -2,7 +2,6 @@ import styled from "styled-components";
 import NowRank from "../Slider/NowRank";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
   margin: 0px auto;
@@ -98,10 +97,6 @@ const NewList = styled.div`
   margin-right: 10px;
   overflow: hidden;
 `;
-
-interface IForm {
-  state: string;
-}
 
 function Header() {
   const [state, setState] = useState("default");
