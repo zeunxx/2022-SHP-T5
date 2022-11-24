@@ -1,9 +1,16 @@
+import Search_bar from "../Components/Search_bar";
+import Header from "../Components/Header";
 import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Search() {
   const location = useLocation();
-  //console.log(location);
-  //location.state로 검색어 넘겨줍니다!
-  return <div>{location.state}</div>;
+
+  return (
+    <>
+      <Header />
+      <Search_bar search_content={location.state} />
+    </>
+  );
 }
 export default Search;

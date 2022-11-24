@@ -98,6 +98,10 @@ const NewList = styled.div`
   overflow: hidden;
 `;
 
+interface IForm {
+  state: string;
+}
+
 function Header() {
   const [state, setState] = useState("default");
   const ref = useRef<HTMLInputElement>(null);
