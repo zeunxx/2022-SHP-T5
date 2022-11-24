@@ -20,7 +20,7 @@ public class NewsController {
 
     // 파일 읽기
     NewsController() throws IOException {
-        File newscsv = new File("C:\\Users\\eyu08\\OneDrive\\문서\\GitHub\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\clustered_article_sample.csv");
+        File newscsv = new File("C:\\Users\\82105\\OneDrive\\바탕 화면\\newknews\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\clustered_article_sample.csv");
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(newscsv),"UTF-8"));
         Charset.forName("UTF-8");
 
