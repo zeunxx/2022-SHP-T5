@@ -1,4 +1,3 @@
-import Search_bar from "../Components/Search_bar";
 import Header from "../Components/Header";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -9,7 +8,7 @@ function Search() {
   return (
     <>
       <Header />
-      <Search_bar search_content={location.state} />
+      {/* <Search_bar search_content={location.state} /> */}
     </>
   );
 }
