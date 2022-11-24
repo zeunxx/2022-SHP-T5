@@ -683,7 +683,7 @@ const Clustering = () => {
                     categories: testkeyword[box].keyword,
                   },
                   yaxis: {
-                    show: true,
+                    show: false,
                   },
                   plotOptions: {
                     bar: {
@@ -694,7 +694,7 @@ const Clustering = () => {
                 }}
                 series={[
                   {
-                    name: "빈도 수",
+                    name: "키워드 수",
                     data: testkeyword[box].count,
                   },
                 ]}
