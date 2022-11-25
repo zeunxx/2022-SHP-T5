@@ -23,54 +23,7 @@ const Title = styled.h1`
   font-weight: 600;
 `;
 
-let headline:string[] = [
-  `美, 폴란드 피격 미사일, '우크라 오발탄 결론'`,                                          //A0
-  `‘폴란드 타격’ 미사일 놓고...나토 “우크라 것”`,                                          //A1
-  `나토 "폴란드 떨어진 건 우크라 미사일"…`,                                                //A2
-  `폴란드 두다 대통령 "폴란드에 대한 공격이 아니었다"`,                                     //B0
-  `[영상] 젤렌스키 “폴란드 피격 미사일, 러가 쏜 것”…나토 잠정 결론 정면 부인 [나우,어스]`,    //B1
-  `美 “우크라 미사일이 폴란드 피격 조사 신뢰”…원인은 러시아"`,                              //B2
 
-  '"명단 공개하라" 그렇게 외치더니..장경태 "민주당이 공개한 거 아니다"',
-  '‘명단 공개’ 책임 떠넘기기… 與 “법적 대응” 野 “정부 은폐 탓”',
-  '일방적 희생자 명단 공개,진정한 애도 아니다',
-
-  '‘이태원 참사’ 책임 떠넘기기 바쁜 與野…“명단공개” vs “국정조사”',
-  '[이태원 참사] 희생자 명단공개 논란에…與 "본진은 민주" 野 "정부 은폐 탓"',
-  '유가족 “명단공개, 논의 공간 왜 안 만드나”…野 “정부·여당 답하라”',
-]
-let articleLink:string[] = [
-  'https://www.seoul.co.kr/news/newsView.php?id=20221117001007',
-  'https://www.chosun.com/international/international_general/2022/11/17/5GMICKJCEBBJTKX76HR3LACN54/',
-  'https://news.mt.co.kr/mtview.php?no=2022111706563650252',
-  'https://www.fnnews.com/news/202211170647136271',
-  'http://news.heraldcorp.com/view.php?ud=20221117000027',
-  'http://news.kmib.co.kr/article/view.asp?arcid=0017680722&code=61131111&sid1=prj',
-
-  'https://www.fnnews.com/news/202211170736095272',
-  'https://www.seoul.co.kr/news/newsView.php?id=20221117004007',
-  'https://www.hankookilbo.com/News/Read/A2022111515410000154',
-  'https://www.mk.co.kr/news/politics/10533435',
-  'https://www.yna.co.kr/view/AKR20221116073300001',
-  'https://www.donga.com/news/Society/article/all/20221122/116626279/1'
-
-
-]
-let imageFiles:string[] = [
-  'https://img.seoul.co.kr/img/upload/2022/11/16/SSI_20221116220047_O2.jpg',
-  'https://images.chosun.com/resizer/k6J-Ntx9faxCBMRnajUsbA9GQjQ=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/MTMKNPU32FM57LSKVPAQZ2PDWI.jpg',
-  'https://thumb.mt.co.kr/06/2022/11/2022111706563650252_1.jpg/dims/optimize/',
-  'https://image.fnnews.com/resource/media/image/2022/11/16/202211162114315790_l.jpg',
-  'http://res.heraldm.com/content/image/2022/11/17/20221117000022_0.gif',
-  'https://image.kmib.co.kr/online_image/2022/1117/2022111707193798857_1668637177_0017680722.jpg',
-
-  'https://image.fnnews.com/resource/media/image/2022/11/16/202211161656193339_l.jpg',
-  'https://img.seoul.co.kr/img/upload/2022/11/16/SSI_20221116134051_O2.png',
-  'https://newsimg-hams.hankookilbo.com/2022/11/15/993687fd-e4b2-42f8-a002-5740c5143841.jpg',
-  'https://wimg.mk.co.kr/news/cms/202211/16/news-p.v1.20221116.11e3209c71d142f898d02eb3ac2f37c2_P1.jpg',
-  'https://img4.yna.co.kr/photo/yna/YH/2022/11/15/PYH2022111502940001300_P4.jpg',
-  'https://dimg.donga.com/wps/NEWS/IMAGE/2022/11/22/116626243.2.jpg'
-]
 
 function Detail() {
   return (
@@ -81,432 +34,570 @@ function Detail() {
         이슈 vs 이슈
       </Title>
     </Wrapper>        
-    
-
-      {/* {
-        testitem.map((item)=>{ 
-          <Accordion title={item.title}
-          contentA0={headline[0]} imageFileA0={imageFiles[0]} articleLinkA0={articleLink[0]}
-          contentA1={headline[1]} imageFileA1={imageFiles[1]} articleLinkA1={articleLink[1]}
-          contentA2={headline[2]} imageFileA2={imageFiles[2]} articleLinkA2={articleLink[2]}
-          contentB0={headline[3]} imageFileB0={imageFiles[3]} articleLinkB0={articleLink[3]}
-          contentB1={headline[4]} imageFileB1={imageFiles[4]} articleLinkB1={articleLink[4]}
-          contentB2={headline[5]} imageFileB2={imageFiles[5]} articleLinkB2={articleLink[5]}/>
-          console.log(item)
+      {
+        ServerAPI.map((item)=>{
+          if(item.clusterNum==1){
+            HeadLine1[HeadLine1Count]=item.title
+            HeadLine1Count++
+            ImageLink1[ImageLink1Count]=item.imageLink
+            ImageLink1Count++
+            Url1[Url1Count]=item.url
+            Url1Count++
+          }else if(item.clusterNum==2){
+            HeadLine2[HeadLine2Count]=item.title
+            HeadLine2Count++
+            ImageLink2[ImageLink2Count]=item.imageLink
+            ImageLink2Count++
+            Url2[Url2Count]=item.url
+            Url2Count++
+          }else if(item.clusterNum==3){
+            HeadLine3[HeadLine3Count]=item.title
+            HeadLine3Count++
+            ImageLink3[ImageLink3Count]=item.imageLink
+            ImageLink3Count++
+            Url3[Url3Count]=item.url
+            Url3Count++
+          }else if(item.clusterNum==4){
+            HeadLine4[HeadLine4Count]=item.title
+            HeadLine4Count++
+            ImageLink4[ImageLink4Count]=item.imageLink
+            ImageLink4Count++
+            Url4[Url4Count]=item.url
+            Url4Count++
+          }else if(item.clusterNum==5){
+            HeadLine5[HeadLine5Count]=item.title
+            HeadLine5Count++
+            ImageLink5[ImageLink5Count]=item.imageLink
+            ImageLink5Count++
+            Url5[Url5Count]=item.url
+            Url5Count++
+          }else if(item.clusterNum==6){
+            HeadLine6[HeadLine6Count]=item.title
+            HeadLine6Count++
+            ImageLink6[ImageLink6Count]=item.imageLink
+            ImageLink6Count++
+            Url6[Url6Count]=item.url
+            Url6Count++
+          }else if(item.clusterNum==7){
+            HeadLine7[HeadLine7Count]=item.title
+            HeadLine7Count++
+            ImageLink7[ImageLink7Count]=item.imageLink
+            ImageLink7Count++
+            Url7[Url7Count]=item.url
+            Url7Count++
+          }else if(item.clusterNum==8){
+            HeadLine8[HeadLine8Count]=item.title
+            HeadLine8Count++
+            ImageLink8[ImageLink8Count]=item.imageLink
+            ImageLink8Count++
+            Url8[Url8Count]=item.url
+            Url8Count++
+          }else if(item.clusterNum==9){
+            HeadLine9[HeadLine9Count]=item.title
+            HeadLine9Count++
+            ImageLink9[ImageLink9Count]=item.imageLink
+            ImageLink9Count++
+            Url9[Url9Count]=item.url
+            Url9Count++
+          }else if(item.clusterNum==10){
+            HeadLine10[HeadLine10Count]=item.title
+            HeadLine10Count++
+            ImageLink10[ImageLink10Count]=item.imageLink
+            ImageLink10Count++
+            Url10[Url10Count]=item.url
+            Url10Count++
+          }
         })
-      } */}
-
+      }
     <Center>
-      <Accordion title={"우크라이나"} 
-      contentA0={headline[0]} imageFileA0={imageFiles[0]} articleLinkA0={articleLink[0]}
-      contentA1={headline[1]} imageFileA1={imageFiles[1]} articleLinkA1={articleLink[1]}
-      contentA2={headline[2]} imageFileA2={imageFiles[2]} articleLinkA2={articleLink[2]}
-      contentB0={headline[3]} imageFileB0={imageFiles[3]} articleLinkB0={articleLink[3]}
-      contentB1={headline[4]} imageFileB1={imageFiles[4]} articleLinkB1={articleLink[4]}
-      contentB2={headline[5]} imageFileB2={imageFiles[5]} articleLinkB2={articleLink[5]}/> 
-
-      <Accordion title={"이태원 명단 공개"} 
-      contentA0={headline[6]} imageFileA0={imageFiles[6]} articleLinkA0={articleLink[6]}
-      contentA1={headline[7]} imageFileA1={imageFiles[7]} articleLinkA1={articleLink[7]}
-      contentA2={headline[8]} imageFileA2={imageFiles[8]} articleLinkA2={articleLink[8]}
-      contentB0={headline[9]} imageFileB0={imageFiles[9]} articleLinkB0={articleLink[9]}
-      contentB1={headline[10]} imageFileB1={imageFiles[10]} articleLinkB1={articleLink[10]}
-      contentB2={headline[11]} imageFileB2={imageFiles[11]} articleLinkB2={articleLink[11]}/>
-
-      <Accordion title={"건국대학교"} 
-      contentA0={headline[0]} imageFileA0={imageFiles[0]} articleLinkA0={articleLink[0]}
-      contentA1={headline[1]} imageFileA1={imageFiles[1]} articleLinkA1={articleLink[1]}
-      contentA2={headline[2]} imageFileA2={imageFiles[2]} articleLinkA2={articleLink[2]}
-      contentB0={headline[3]} imageFileB0={imageFiles[3]} articleLinkB0={articleLink[3]}
-      contentB1={headline[4]} imageFileB1={imageFiles[4]} articleLinkB1={articleLink[4]}
-      contentB2={headline[5]} imageFileB2={imageFiles[5]} articleLinkB2={articleLink[5]}/>
-
-      <Accordion title={"수능"} 
-      contentA0={headline[0]} imageFileA0={imageFiles[0]} articleLinkA0={articleLink[0]}
-      contentA1={headline[1]} imageFileA1={imageFiles[1]} articleLinkA1={articleLink[1]}
-      contentA2={headline[2]} imageFileA2={imageFiles[2]} articleLinkA2={articleLink[2]}
-      contentB0={headline[3]} imageFileB0={imageFiles[3]} articleLinkB0={articleLink[3]}
-      contentB1={headline[4]} imageFileB1={imageFiles[4]} articleLinkB1={articleLink[4]}
-      contentB2={headline[5]} imageFileB2={imageFiles[5]} articleLinkB2={articleLink[5]}/>
+    <Accordion title={"이태원, 尹 대통령"} 
+      contentA0={HeadLine1[0]} imageFileA0={ImageLink1[0]} articleLinkA0={Url1[0]}
+      contentA1={HeadLine1[1]} imageFileA1={ImageLink1[1]} articleLinkA1={Url1[1]}
+      contentA2={HeadLine1[2]} imageFileA2={ImageLink1[2]} articleLinkA2={Url1[2]}
+      contentB0={HeadLine1[3]} imageFileB0={ImageLink1[3]} articleLinkB0={Url1[3]}
+      contentB1={HeadLine1[4]} imageFileB1={ImageLink1[4]} articleLinkB1={Url1[4]}
+      contentB2={HeadLine1[5]} imageFileB2={ImageLink1[5]} articleLinkB2={Url1[5]}/>
+      <Accordion title={"북한"} 
+      contentA0={HeadLine2[0]} imageFileA0={ImageLink2[0]} articleLinkA0={Url2[0]}
+      contentA1={HeadLine2[1]} imageFileA1={ImageLink2[1]} articleLinkA1={Url2[1]}
+      contentA2={HeadLine2[2]} imageFileA2={ImageLink2[2]} articleLinkA2={Url2[2]}
+      contentB0={HeadLine2[3]} imageFileB0={ImageLink2[3]} articleLinkB0={Url2[3]}
+      contentB1={HeadLine2[4]} imageFileB1={ImageLink2[4]} articleLinkB1={Url2[4]}
+      contentB2={HeadLine2[5]} imageFileB2={ImageLink2[5]} articleLinkB2={Url2[5]}/>
+      <Accordion title={"정진상"} 
+      contentA0={HeadLine3[0]} imageFileA0={ImageLink3[0]} articleLinkA0={Url3[0]}
+      contentA1={HeadLine3[1]} imageFileA1={ImageLink3[1]} articleLinkA1={Url3[1]}
+      contentA2={HeadLine3[2]} imageFileA2={ImageLink3[2]} articleLinkA2={Url3[2]}
+      contentB0={HeadLine3[3]} imageFileB0={ImageLink3[3]} articleLinkB0={Url3[3]}
+      contentB1={HeadLine3[4]} imageFileB1={ImageLink3[4]} articleLinkB1={Url3[4]}
+      contentB2={HeadLine3[5]} imageFileB2={ImageLink3[5]} articleLinkB2={Url3[5]}/> 
+      <Accordion title={"광부 생환"} 
+      contentA0={HeadLine4[0]} imageFileA0={ImageLink4[0]} articleLinkA0={Url4[0]}
+      contentA1={HeadLine4[1]} imageFileA1={ImageLink4[1]} articleLinkA1={Url4[1]}
+      contentA2={HeadLine4[2]} imageFileA2={ImageLink4[2]} articleLinkA2={Url4[2]}
+      contentB0={HeadLine4[3]} imageFileB0={ImageLink4[3]} articleLinkB0={Url4[3]}
+      contentB1={HeadLine4[4]} imageFileB1={ImageLink4[4]} articleLinkB1={Url4[4]}
+      contentB2={HeadLine4[5]} imageFileB2={ImageLink4[5]} articleLinkB2={Url4[5]}/>
+      <Accordion title={"정진석"} 
+      contentA0={HeadLine5[0]} imageFileA0={ImageLink4[0]} articleLinkA0={Url4[0]}
+      contentA1={HeadLine5[1]} imageFileA1={ImageLink4[1]} articleLinkA1={Url4[1]}
+      contentA2={HeadLine5[2]} imageFileA2={ImageLink4[2]} articleLinkA2={Url4[2]}
+      contentB0={HeadLine5[3]} imageFileB0={ImageLink4[3]} articleLinkB0={Url4[3]}
+      contentB1={HeadLine5[4]} imageFileB1={ImageLink4[4]} articleLinkB1={Url4[4]}
+      contentB2={HeadLine5[5]} imageFileB2={ImageLink4[5]} articleLinkB2={Url4[5]}/>
+      <Accordion title={"한덕수"} 
+      contentA0={HeadLine6[0]} imageFileA0={ImageLink4[0]} articleLinkA0={Url4[0]}
+      contentA1={HeadLine6[1]} imageFileA1={ImageLink4[1]} articleLinkA1={Url4[1]}
+      contentA2={HeadLine6[2]} imageFileA2={ImageLink4[2]} articleLinkA2={Url4[2]}
+      contentB0={HeadLine6[3]} imageFileB0={ImageLink4[3]} articleLinkB0={Url4[3]}
+      contentB1={HeadLine6[4]} imageFileB1={ImageLink4[4]} articleLinkB1={Url4[4]}
+      contentB2={HeadLine6[5]} imageFileB2={ImageLink4[5]} articleLinkB2={Url4[5]}/>
+      <Accordion title={"주제 7"} 
+      contentA0={HeadLine7[0]} imageFileA0={ImageLink4[0]} articleLinkA0={Url4[0]}
+      contentA1={HeadLine7[1]} imageFileA1={ImageLink4[1]} articleLinkA1={Url4[1]}
+      contentA2={HeadLine7[2]} imageFileA2={ImageLink4[2]} articleLinkA2={Url4[2]}
+      contentB0={HeadLine7[3]} imageFileB0={ImageLink4[3]} articleLinkB0={Url4[3]}
+      contentB1={HeadLine7[4]} imageFileB1={ImageLink4[4]} articleLinkB1={Url4[4]}
+      contentB2={HeadLine7[5]} imageFileB2={ImageLink4[5]} articleLinkB2={Url4[5]}/>
+      <Accordion title={"주제 8"} 
+      contentA0={HeadLine8[0]} imageFileA0={ImageLink4[0]} articleLinkA0={Url4[0]}
+      contentA1={HeadLine8[1]} imageFileA1={ImageLink4[1]} articleLinkA1={Url4[1]}
+      contentA2={HeadLine8[2]} imageFileA2={ImageLink4[2]} articleLinkA2={Url4[2]}
+      contentB0={HeadLine8[3]} imageFileB0={ImageLink4[3]} articleLinkB0={Url4[3]}
+      contentB1={HeadLine8[4]} imageFileB1={ImageLink4[4]} articleLinkB1={Url4[4]}
+      contentB2={HeadLine8[5]} imageFileB2={ImageLink4[5]} articleLinkB2={Url4[5]}/>
+      <Accordion title={"주제 9"} 
+      contentA0={HeadLine9[0]} imageFileA0={ImageLink4[0]} articleLinkA0={Url4[0]}
+      contentA1={HeadLine9[1]} imageFileA1={ImageLink4[1]} articleLinkA1={Url4[1]}
+      contentA2={HeadLine9[2]} imageFileA2={ImageLink4[2]} articleLinkA2={Url4[2]}
+      contentB0={HeadLine9[3]} imageFileB0={ImageLink4[3]} articleLinkB0={Url4[3]}
+      contentB1={HeadLine9[4]} imageFileB1={ImageLink4[4]} articleLinkB1={Url4[4]}
+      contentB2={HeadLine9[5]} imageFileB2={ImageLink4[5]} articleLinkB2={Url4[5]}/>
+      <Accordion title={"주제 10"} 
+      contentA0={HeadLine10[0]} imageFileA0={ImageLink4[0]} articleLinkA0={Url4[0]}
+      contentA1={HeadLine10[1]} imageFileA1={ImageLink4[1]} articleLinkA1={Url4[1]}
+      contentA2={HeadLine10[2]} imageFileA2={ImageLink4[2]} articleLinkA2={Url4[2]}
+      contentB0={HeadLine10[3]} imageFileB0={ImageLink4[3]} articleLinkB0={Url4[3]}
+      contentB1={HeadLine10[4]} imageFileB1={ImageLink4[4]} articleLinkB1={Url4[4]}
+      contentB2={HeadLine10[5]} imageFileB2={ImageLink4[5]} articleLinkB2={Url4[5]}/>
     </Center>
     </>
   );
 }
 
-const testitem = [
+let HeadLine1:string[]=[]
+var HeadLine1Count = 0
+let ImageLink1:string[]=[]
+var ImageLink1Count = 0
+let Url1:string[]=[]
+var Url1Count = 0
+
+let HeadLine2:string[]=[]
+var HeadLine2Count = 0
+let ImageLink2:string[]=[]
+var ImageLink2Count = 0
+let Url2:string[]=[]
+var Url2Count = 0
+
+let HeadLine3:string[]=[]
+var HeadLine3Count = 0
+let ImageLink3:string[]=[]
+var ImageLink3Count = 0
+let Url3:string[]=[]
+var Url3Count = 0
+
+let HeadLine4:string[]=[]
+var HeadLine4Count = 0
+let ImageLink4:string[]=[]
+var ImageLink4Count = 0
+let Url4:string[]=[]
+var Url4Count = 0
+
+let HeadLine5:string[]=[]
+var HeadLine5Count = 0
+let ImageLink5:string[]=[]
+var ImageLink5Count = 0
+let Url5:string[]=[]
+var Url5Count = 0
+
+let HeadLine6:string[]=[]
+var HeadLine6Count = 0
+let ImageLink6:string[]=[]
+var ImageLink6Count = 0
+let Url6:string[]=[]
+var Url6Count = 0
+
+let HeadLine7:string[]=[]
+var HeadLine7Count = 0
+let ImageLink7:string[]=[]
+var ImageLink7Count = 0
+let Url7:string[]=[]
+var Url7Count = 0
+
+let HeadLine8:string[]=[]
+var HeadLine8Count = 0
+let ImageLink8:string[]=[]
+var ImageLink8Count = 0
+let Url8:string[]=[]
+var Url8Count = 0
+
+let HeadLine9:string[]=[]
+var HeadLine9Count = 0
+let ImageLink9:string[]=[]
+var ImageLink9Count = 0
+let Url9:string[]=[]
+var Url9Count = 0
+
+let HeadLine10:string[]=[]
+var HeadLine10Count = 0
+let ImageLink10:string[]=[]
+var ImageLink10Count = 0
+let Url10:string[]=[]
+var Url10Count = 0
+
+const ServerAPI = [
   {
-    index: 1,
-    title: `美, 폴란드 피격 미사일, '우크라 오발탄 결론`,
-    url: "https://www.bigkinds.or.kr/resources/images/02100851/2022/11/17/02100851.20221117075823001.01.jpg",
-    press: "아주경제",
-    pageLink: "https://v.daum.net/v/20221105203122210"
+    clusterNum: 1,
+    title: `尹대통령, 엿새째 합동분향소 조문…한덕수·이상민 동행`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105110332075",
+    type: "1"
   },
   {
-    index: 1,
-    title: `‘폴란드 타격’ 미사일 놓고...나토 “우크라 것” 젤렌스키 “러시아 소행”`,
+    clusterNum: 1,
+    title: `尹, 국가애도기간 마지막 날 합동분향소 조문···한덕수·이상민 동행`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105112435359",
+    type: "1"
+  },
+  {
+    clusterNum: 1,
+    title: `尹, 국가애도기간 마지막날 합동분향소 조문...총리·이상민 등 국무위원 동행`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105104920896",
+    type: "1"
+  },
+  {
+    clusterNum: 1,
+    title: `尹대통령 "청년들 못지킨 미안함 영원히 남을 것"`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105110332075",
+    type: "0"
+  },
+  {
+    clusterNum: 1,
+    title: `윤 대통령 "청년들 못 지킨 미안함 영원히 떠나지 않을 것"`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105153900507",
+    type: "0"
+  },
+  {
+    clusterNum: 1,
+    title: `尹 “꽃다운 청년들 지켜주지 못한 미안한 마음 영원히 떠나지 않을 것” [이태원 핼러윈 참사]`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105155411725",
+    type: "0"
+  },
+  
+  {
+    clusterNum: 2,
+    title: `비질런트 스톰 오늘 마무리…미 전략자산 B-1B 출격으로 대미 장식하나`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105122416055",
+    type: "1"
+  },
+  {
+    clusterNum: 2,
+    title: `합참 “북, 단거리 탄도미사일 4발 서해상으로 발사 포착”`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105172042132",
+    type: "1"
+  },
+  {
+    clusterNum: 2,
+    title: `합참 “北, 단거리탄도미사일 4발 서해상 발사 포착”`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105172712244",
+    type: "1"
+  },
+  {
+    clusterNum: 2,
+    title: `'비질런트 스톰' 오늘 마무리‥훈련 중 북한 도발 이어가`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105115700721",
+    type: "0"
+  },
+  {
+    clusterNum: 2,
+    title: `北 떨게 한 '비질런트 스톰'…'죽음의 백조' B-1B 대미 장식할까`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105112905427",
+    type: "0"
+  },
+  {
+    clusterNum: 2,
+    title: `북한, 동해 아닌 서해로 SRBM 4발 발사 ‘이례적’…B-1B 투입 반발?`,
+    press: "",
+    imageLink: "https://cdn.lamanus.kr/wp-content/uploads/2018/08/28225854/google-2048x1536.png",
+    url: "https://v.daum.net/v/20221105174902629",
+    type: "0"
+  },
+
+  {
+    clusterNum: 3,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "조선일보",
+    type: "1"
   },
   {
-    index: 1,
-    title: `나토 "폴란드에 떨어진 건 우크라 방공 미사일…러 책임"`,
+    clusterNum: 3,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "SBS",
+    type: "1"
   },
   {
-    index: 1,
-    title: `美 “우크라 미사일이 폴란드 피격 조사 신뢰”…원인은 러시아"`,
+    clusterNum: 3,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "국민일보",
+    type: "1"
   },
   {
-    index: 1,
-    title: `폴란드 두다 대통령 "폴란드에 대한 공격이 아니었다"`,
+    clusterNum: 3,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "파이낸셜뉴스",
+    type: "0"
   },
   {
-    index: 1,
-    title: `나토 '우크라 오폭' 결론에… 젤렌스키 "러시아가 미사일 쏜 것" 부인`,
+    clusterNum: 3,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "한국일보",
+    type: "0"
   },
   {
-    index: 1,
-    title: `[영상] 젤렌스키 “폴란드 피격 미사일, 러가 쏜 것”…나토 잠정 결론 정면 부인 [나우,어스]`,
+    clusterNum: 3,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "헤럴드경제",
+    type: "0"
   },
+
   {
-    index: 1,
-    title: `나토 "폴란드 떨어진 건 우크라 미사일"…젤렌스키 "우리것 아냐"`,
+    clusterNum: 4,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "머니투데이",
+    type: "1"
   },
   {
-    index: 2,
-    title: `코로나19 악화 속 수능 현장…응시생 속속 도착`,
-    url: "https://www.bigkinds.or.kr/resources/images/08100101/2022/11/17/08100101.20221117075415001.01.jpg",
-    press: "KBS",
-  },
-  {
-    index: 2,
-    title: `오늘 2023학년도 수능…이 시각 서대전고`,
+    clusterNum: 4,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "KBS",
+    type: "1"
   },
   {
-    index: 2,
-    title: `아이브·뉴진스 '수능 안봐요' vs 男 아이돌 '수능 앞으로'…왜?`,
+    clusterNum: 4,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "머니투데이",
+    type: "1"
   },
   {
-    index: 2,
-    title: `광주·전남 96개 시험장에서 수능…이 시각 고사장`,
+    clusterNum: 4,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "KBS",
+    type: "0"
   },
   {
-    index: 2,
-    title: `세 번째 '코로나 수능', 51만명 응시…확진 수험생 2천300여명`,
+    clusterNum: 4,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "매일신문",
+    type: "0"
   },
   {
-    index: 2,
-    title: `아이유, 수능 응원 “어떤 결과든 박수 쳐줄 것”`,
+    clusterNum: 4,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "매일경제",
+    type: "0"
   },
+
   {
-    index: 2,
-    title: `경남 116개 수능 시험장 입실…이 시각 창원문성고등학교`,
+    clusterNum: 5,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "KBS",
+    type: "1"
   },
   {
-    index: 2,
-    title: `코로나19 이후 세 번째 수능…이 시각 수험장`,
+    clusterNum: 5,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "KBS",
+    type: "1"
   },
   {
-    index: 3,
-    title: `"명단 공개하라" 그렇게 외치더니..장경태 "민주당이 공개한 거 아니다"`,
-    url: "https://www.bigkinds.or.kr/resources/images/02100501/2022/11/17/02100501.20221117075229001.01.jpg",
-    press: "파이낸셜뉴스",
-  },
-  {
-    index: 3,
-    title: `"李대표가 명단 공개하라 했잖냐" 민주당 내부서도 '이태원' 후폭풍`,
+    clusterNum: 5,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "파이낸셜뉴스",
+    type: "1"
   },
   {
-    index: 3,
-    title: `“이태원 참사 당일 불법 주·정차 신고 72건…이동·견인 조치 14건뿐”`,
+    clusterNum: 5,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "문화일보",
+    type: "1"
   },
   {
-    index: 3,
-    title: `이태원로 CCTV 입수‥골목길 밖에 경찰 있었는데`,
+    clusterNum: 5,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "MBC",
+    type: "1"
   },
   {
-    index: 3,
-    title: `野 “참사당일 신고는 72건… 이동·견인 조치는 14건뿐”`,
+    clusterNum: 5,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "해럴드경제",
+    type: "1"
   },
+
   {
-    index: 3,
-    title: `이태원 참사 ‘이상민 책임론’에 또다시 무한신뢰 보인 尹`,
+    clusterNum: 6,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "세계일보",
+    type: "1"
   },
   {
-    index: 3,
-    title: `“명단 공개로 이중적 충격… 사회가 유가족 지지해야”`,
+    clusterNum: 6,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "서울신문",
+    type: "1"
   },
   {
-    index: 3,
-    title: `‘명단 공개’ 책임 떠넘기기… 與 “법적 대응” 野 “정부 은폐 탓”`,
+    clusterNum: 6,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "서울신문",
+    type: "1"
   },
   {
-    index: 4,
-    title: `“팔짱 원조, 그땐 자랑해 놓고”…허은아가 올린 文·고민정 사진`,
-    url: "https://www.bigkinds.or.kr/resources/images/01100801/2022/11/17/01100801.20221117075501001.01.jpg",
-    press: "국민일보",
-  },
-  {
-    index: 4,
-    title: `이준석 “먹방 유튜버도 포르노 배우냐···이성 찾자”`,
+    clusterNum: 6,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "경향신문",
+    type: "1"
   },
   {
-    index: 4,
-    title: `'김건희 독자일정' 공방‥'빈곤 포르노' 윤리위 제소`,
+    clusterNum: 6,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "MBC",
+    type: "1"
   },
   {
-    index: 4,
-    title: `장경태 "김여사 가만있는데 제3자들이 왜 난리"..되레 與여성의원들 나무랐다`,
+    clusterNum: 6,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "파이낸셜뉴스",
+    type: "1"
   },
+
   {
-    index: 4,
-    title: `이준석 “빈곤 포르노에서 ‘포르노’에만 꽂힌 분들, 이성 찾자”`,
+    clusterNum: 7,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "조선일보",
+    type: "1"
   },
   {
-    index: 4,
-    title: `“‘포르노’에 꽂힌 분들, 먹방 유튜버도 포르노 배우냐”.. 이준석 與에 쓴소리`,
+    clusterNum: 7,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "세계일보",
+    type: "1"
   },
   {
-    index: 4,
-    title: `野 "尹 순방 성적표 초라…지소미아 복원 굴욕"`,
+    clusterNum: 7,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "영남일보",
+    type: "1"
   },
   {
-    index: 4,
-    title: `與, '빈곤 포르노' 발언 장경태 윤리위 제소…"의원직 사퇴하라"`,
+    clusterNum: 7,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "영남일보",
+    type: "1"
   },
   {
-    index: 5,
-    title: `정진상 소환 하루 만에 '구속영장 청구'…내일 영장 심사`,
-    url: "https://www.bigkinds.or.kr/resources/images/08100301/2022/11/17/08100301.20221117074043001.01.jpg",
-    press: "SBS",
-  },
-  {
-    index: 5,
-    title: `野 내부서도…“이재명 측근 일에 당 총력방어, 부적절”`,
+    clusterNum: 7,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "국민일보",
+    type: "1"
   },
   {
-    index: 5,
-    title: `민주당 “檢 먼지떨이 조작 수사 규탄…진실 찾아내겠다”`,
+    clusterNum: 7,
+    title: ``,
+    press: "",
+    imageLink: "",
     url: "",
-    press: "세계일보",
-  },
-  {
-    index: 5,
-    title: `정진상 18일 구속심사…발부시 ‘李 수사’ 본격화 예상`,
-    url: "",
-    press: "세계일보",
-  },
-  {
-    index: 5,
-    title: `檢, 정진상 소환 이튿날 구속영장…이미 ‘퍼즐’ 대부분 맞췄나?`,
-    url: "",
-    press: "세계일보",
-  },
-  {
-    index: 5,
-    title: `이화영·김용·정진상까지 포위…이재명 턱밑까지 온 영장 청구`,
-    url: "",
-    press: "중앙일보",
-  },
-  {
-    index: 5,
-    title: `뇌물수수 등 4가지 혐의 적용… ‘이재명 최측근’ 구속 갈림길`,
-    url: "",
-    press: "국민일보",
-  },
-  {
-    index: 5,
-    title: `이재명 측근 정진상 구속영장`,
-    url: "",
-    press: "조선일보",
-  },
-  {
-    index: 6,
-    title: `"백신 맞으면 고궁 무료입장"…정부 인센티브에도 시민반응은 '글쎄'`,
-    url: "https://www.bigkinds.or.kr/resources/images/02100801/2022/11/17/02100801.20221117060111001.01.jpg",
-    press: "아시아경제",
-  },
-  {
-    index: 6,
-    title: `"하루 20만 확진" 전망에도 접종 저조…'백신 인센티브' 통할까`,
-    url: "",
-    press: "머니투데이",
-  },
-  {
-    index: 6,
-    title: `겨울철 재유행 비상인데 ‘백신 접종’ 불신 어쩌나…`,
-    url: "",
-    press: "국민일보",
-  },
-  {
-    index: 6,
-    title: `[사설] 저조한 접종률… 백신 불신 해소에 적극 나서야`,
-    url: "",
-    press: "국민일보",
-  },
-  {
-    index: 6,
-    title: `부산 중구, 코로나19 동절기 추가접종 캠페인 실시`,
-    url: "",
-    press: "부산일보",
-  },
-  {
-    index: 6,
-    title: `국내 확진 6만6천587명...21일부터 동절기 '집중 접종'`,
-    url: "",
-    press: "경기일보",
-  },
-  {
-    index: 6,
-    title: `[취재수첩] 지지부진한 백신 접종에 대책 못 내는 정부`,
-    url: "",
-    press: "한국경제",
-  },
-  {
-    index: 6,
-    title: `국민 65% "개량 백신 안 맞겠다"...정부, 접종률 제고 안간힘`,
-    url: "",
-    press: "YTN",
-  },
-  {
-    index: 7,
-    title: `수천만 원대의 뇌물을 받은 혐의…노웅래 의원 압수수색`,
-    url: "https://www.bigkinds.or.kr/resources/images/08100301/2022/11/17/08100301.20221117074447001.01.jpg",
-    press: "SBS",
-  },
-  {
-    index: 7,
-    title: `압수수색 당한 노웅래 "회기중 의원사무실을..명백한 야당탄압"`,
-    url: "",
-    press: "파이낸셜뉴스",
-  },
-  {
-    index: 7,
-    title: `검찰, '뇌물 혐의' 노웅래 압수수색‥수사 파장 '촉각'`,
-    url: "",
-    press: "MBC",
-  },
-  {
-    index: 7,
-    title: `‘6000만원 수수 혐의’ 檢, 노웅래 의원 압수수색…“명백한 허위사실”`,
-    url: "",
-    press: "세계일보",
-  },
-  {
-    index: 8,
-    title: `"플로리다의 한 은퇴자가 출마선언" 트럼프 조롱한 뉴욕포스트`,
-    url: "https://www.bigkinds.or.kr/resources/images/02100801/2022/11/17/02100801.20221117072812001.01.jpg",
-    press: "아시아경제",
-  },
-  {
-    index: 8,
-    title: `[이 시각 세계] 트럼프, '유산반환 요구' 조카에 승소`,
-    url: "",
-    press: "MBC",
-  },
-  {
-    index: 8,
-    title: `트럼프, 2024년 美 대선 출마 선언…공화당서도 ‘우려’`,
-    url: "",
-    press: "KBS",
-  },
-  {
-    index: 8,
-    title: `트럼프 출마 선언에 내심 ‘트나땡’ 외치는 美 민주당...트럼프 집권 후 민주당 계속 선전`,
-    url: "",
-    press: "문화일보",
-  },
-  {
-    index: 9,
-    title: `경찰, 이상민 피의자 수사‥"직접 지휘 의무 확인 중"`,
-    url: "https://www.bigkinds.or.kr/resources/images/08100201/2022/11/17/08100201.20221117074106002.01.jpg",
-    press: "MBC",
-  },
-  {
-    index: 9,
-    title: `‘물러나야’ 압박에 이상민 “사실상 백지사표 낸 상황. 책임 회피할 생각 전혀 없다”`,
-    url: "",
-    press: "세계일보",
-  },
-  {
-    index: 9,
-    title: `특수본, 이상민 장관 본격 수사 들어가나… “책임 법리 검토” [이태원 핼러윈 참사]`,
-    url: "",
-    press: "세계일보",
-  },
-  {
-    index: 9,
-    title: `서울청, 희생자 명단 공개 매체 수사 착수… 특수본, 이상민 정조준`,
-    url: "",
-    press: "서울신문",
-  },
-  {
-    index: 10,
-    title: `국회 행안위, '전액삭감' 경찰국 예산안 놓고 '파행'`,
-    url: "https://www.bigkinds.or.kr/resources/images/02100701/2022/11/17/02100701.20221117071230001.01.jpg",
-    press: "해럴드경제",
-  },
-  {
-    index: 10,
-    title: `[라병배 칼럼] 90억 삭감은 패착`,
-    url: "",
-    press: "대전일보",
-  },
+    type: "1"
+  }, 
 ];
 
 export default Detail;
