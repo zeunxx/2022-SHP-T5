@@ -180,8 +180,8 @@ function Weather() {
   return (
     <Wrapper>
       <Slider {...settings}>
-        {state.map((item) => (
-          <Item>
+        {state.map((item, index) => (
+          <Item key={index}>
             <WeatherImg src={item.icon} />
             <Info>
               <h1>{item.temp}</h1>

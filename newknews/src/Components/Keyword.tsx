@@ -105,6 +105,7 @@ const Item = styled.div<{ active: boolean }>`
     &:hover {
       background-color: #e2e8f3;
     }
+    cursor: pointer;
   }
   span {
     font-size: 13px;
@@ -286,7 +287,7 @@ function Keyword() {
             },
           },
         },
-        //colors: Array(10).fill("orange"),
+        colors: Array(arr.keyword.length).fill("#0364C5"),
       }}
       series={[
         {

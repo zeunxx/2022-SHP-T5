@@ -636,6 +636,7 @@ const Clustering = () => {
           <Slider {...settings}>
             {result.map((item, index) => (
               <Box
+                key={index}
                 backColor={toggle[index]}
                 onClick={() => {
                   setBox(index);
@@ -658,7 +659,7 @@ const Clustering = () => {
               {testitem
                 .slice(result[box], result[box] + check[box])
                 .map((item, index) => (
-                  <Item>
+                  <Item key={index}>
                     <Title2>{item.title}</Title2>
                     <Press2>{item.press}</Press2>
                   </Item>

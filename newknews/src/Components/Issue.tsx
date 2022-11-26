@@ -74,7 +74,7 @@ const BoxVariant = {
   },
 };
 
-const Box = styled.div`
+const Box = styled(motion.div)`
   // background-color: #9898cb;
   height: 280px;
   width: 350px;
@@ -171,7 +171,7 @@ function Issue() {
           <p>분석기준 </p>2022.11.09(수) 08:00 ~ 17:00
         </Nownews>
         <BoxWrapper>
-          <Box>
+          <Box whileHover="hover" variants={BoxVariant}>
             <Img bgphoto="https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202211/08/moneytoday/20221108144626291fpmm.jpg">
               <h1>
                 대통령경호처, 용산 이전으로 기동대 추가? "집회 대비한 배치"
@@ -180,7 +180,7 @@ function Issue() {
             </Img>
             <MiniHeader bgcolor="#0475E6">이 슈</MiniHeader>
           </Box>
-          <Box >
+          <Box whileHover="hover" variants={BoxVariant}>
             <Img bgphoto="https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202211/08/chosunbiz/20221108143726898vrrk.jpg">
               <h1>
                 이태원 ‘사고’냐 ‘참사’냐… 與野, 대통령실 국정감사서 불붙은 용어
@@ -199,12 +199,11 @@ function Issue() {
             <span>전체 기사 보기 〉</span>
           </Link>
           {issue.map((i) => (
-            <Circle></Circle>
+            <Circle key={i}></Circle>
           ))}
         </Bar>
       </Wrapper>
     </>
-
   );
 }
 export default Issue;

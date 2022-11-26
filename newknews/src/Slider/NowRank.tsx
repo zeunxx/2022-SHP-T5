@@ -73,8 +73,8 @@ const NowRank = () => {
 
   return (
     <Slider {...settings}>
-      {testitem.map((item) => (
-        <Item>
+      {testitem.map((item, index) => (
+        <Item key={index}>
           <Index>{item.index + ". "}</Index>
           <Title>{item.name}</Title>
           <span>{item.count}건</span>
