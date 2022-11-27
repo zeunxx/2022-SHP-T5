@@ -3,7 +3,6 @@ import NowRank from "../Slider/NowRank";
 import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 
-
 const Wrapper = styled.div`
   margin: 0px auto;
   width: 1000px;

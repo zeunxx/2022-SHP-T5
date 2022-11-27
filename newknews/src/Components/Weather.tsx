@@ -148,7 +148,7 @@ function Weather() {
           const temp = Math.round((data.main.temp - 273.15) * 10) / 10 + "˚C";
           const icon = `img/weather/${data.weather[0].icon}.svg`;
           setState((old) => {
-            console.log(old);
+            //console.log(old);
             return [
               ...old.slice(0, index),
               {

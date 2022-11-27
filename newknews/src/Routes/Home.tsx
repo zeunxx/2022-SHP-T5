@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import Issue from "../Components/Issue";
+import Keyword from "../Components/Keyword";
 import Today from "../Components/Today";
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
       <Header />
       <Issue />
       <Today />
+      <Keyword />
     </>
   );
 }
