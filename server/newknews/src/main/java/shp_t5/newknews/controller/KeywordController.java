@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import shp_t5.newknews.dto.KeywordDto;
-import shp_t5.newknews.dto.TestNewsDto;
 
 
 import java.io.*;
@@ -24,7 +22,7 @@ import java.util.stream.Collectors;
 public class KeywordController {
     List<KeywordDto> listKeywordDto = new ArrayList<>();
     KeywordController() throws IOException {
-        File keywordcsv = new File("C:\\Users\\82105\\OneDrive\\바탕 화면\\산협프 newknews\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\keyword_test_file.csv");
+        File keywordcsv = new File("C:\\Users\\82105\\OneDrive\\바탕 화면\\산협프 newknews\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\today_keyword.csv");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(keywordcsv),"UTF-8"));
         Charset.forName("UTF-8");
@@ -34,7 +32,7 @@ public class KeywordController {
         while((newsline = br.readLine())!=null) {
             String testCut[] = newsline.split(",");
 
-            KeywordDto keywordDto = new KeywordDto(testCut[0], testCut[1]);
+            KeywordDto keywordDto = new KeywordDto(testCut[0], testCut[1],testCut[2]);
             listKeywordDto.add(keywordDto);
         }
 
