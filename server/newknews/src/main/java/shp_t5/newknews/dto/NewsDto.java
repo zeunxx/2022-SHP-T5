@@ -18,6 +18,14 @@ public class NewsDto {
     @ApiModelProperty(value = "기사 링크")
     public String news_link; //기사 링크
     @ApiModelProperty(value = "긍부정")
-    public int discuss;
+    public String discuss;
 
+    public NewsDto(String cluster_num, String headline, String press, String image_link, String news_link, String discuss) {
+        this.cluster_num = cluster_num;
+        this.headline = headline;
+        this.press = press;
+        this.image_link = image_link;
+        this.news_link = news_link;
+        this.discuss = discuss;
+    }
 }
