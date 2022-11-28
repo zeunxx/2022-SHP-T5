@@ -54,7 +54,7 @@ function Accordion({title,
     contentA2,imageFileA2,articleLinkA2,
     contentB0,imageFileB0,articleLinkB0,
     contentB1,imageFileB1,articleLinkB1,
-    contentB2,imageFileB2,articleLinkB2}){
+    contentB2,imageFileB2,articleLinkB2}: any){
     const [isCheck, setCheck] = useState(false);
 
     linkA0 = articleLinkA0
