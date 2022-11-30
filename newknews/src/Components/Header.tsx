@@ -102,14 +102,7 @@ const NewList = styled.div`
   overflow: hidden;
 `;
 
-export interface IProp {
-  index: number;
-  title: string;
-  url: string;
-  press: string;
-}
-
-function Header(prop: IProp[]) {
+function Header() {
   const [state, setState] = useState("default");
   const ref = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -155,7 +148,7 @@ function Header(prop: IProp[]) {
         </SearchBox>
 
         <NewList>
-          <NowRank {...prop} />
+          <NowRank />
         </NewList>
       </HdTop>
     </Wrapper>

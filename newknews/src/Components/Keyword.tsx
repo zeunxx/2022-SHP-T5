@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import SimpleKeyword from "./SimpleKeyword";
 import ApexCharts from "react-apexcharts";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -40,7 +39,6 @@ const Side = styled.div`
 const Help = styled.div`
   //background-color: #e9d5d5;
   margin-right: 5px;
-
   p {
     display: inline-block;
     //background-color: orange;
@@ -171,74 +169,61 @@ const RightBox = styled.div`
   width: 48%;
 `;
 
-//실제 구현에서 내림차순 정렬되어있음
-const testkeyword = [
-  { index: 1, keyword: "폴란드", count: 1380 },
-  { index: 1, keyword: "우크라", count: 893 },
-  { index: 1, keyword: "나토", count: 563 },
+const Wrapper2 = styled.div`
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.65)),
+    url("img/keyword.jpg");
+  background-size: cover;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  height: 100%;
+  width: 100%;
+  color: #f3f3f3;
+  float: right;
+  padding-top: 45px;
+`;
 
-  { index: 2, keyword: "수능", count: 421 },
-  { index: 2, keyword: "코로나", count: 396 },
-  { index: 2, keyword: "2023", count: 280 },
+const Box = styled.div`
+  //background-color: #856b6b;
+  text-align: center;
+`;
 
-  { index: 3, keyword: "명단", count: 163 },
-  { index: 3, keyword: "이태원", count: 148 },
-  { index: 3, keyword: "민주당", count: 130 },
-
-  { index: 4, keyword: "이준석", count: 104 },
-  { index: 4, keyword: "팔짱", count: 101 },
-  { index: 4, keyword: "장경태", count: 99 },
-
-  { index: 5, keyword: "정진상", count: 92 },
-  { index: 5, keyword: "민주", count: 89 },
-  { index: 5, keyword: "구속영상", count: 86 },
-
-  { index: 6, keyword: "백신", count: 81 },
-  { index: 6, keyword: "고궁", count: 80 },
-  { index: 6, keyword: "확진", count: 74 },
-  { index: 7, keyword: "노웅래", count: 70 },
-  { index: 7, keyword: "압수수색", count: 69 },
-  { index: 7, keyword: "검찰", count: 63 },
-  { index: 8, keyword: "트럼프", count: 58 },
-  { index: 8, keyword: "은퇴자", count: 49 },
-  { index: 8, keyword: "국민의힘", count: 44 },
-  { index: 9, keyword: "이상민", count: 41 },
-  { index: 9, keyword: "경찰", count: 39 },
-  { index: 9, keyword: "특수본", count: 30 },
-  { index: 10, keyword: "국회", count: 29 },
-  { index: 10, keyword: "행안위", count: 21 },
-  { index: 10, keyword: "전액삭감", count: 18 },
-];
-
-const sortFun = (num: number) => {
-  let keyword = [""];
-  let count = [0];
-  testkeyword.map((item, index) => {
-    keyword = [...keyword, item.keyword];
-    count = [...count, item.count];
-  });
-  //console.log(keyword, count);
-  return { keyword: keyword.slice(1, num), count: count.slice(1, num) };
-};
+const Content = styled.div<{
+  size: string;
+  left?: string;
+  height?: string;
+  vertical?: string;
+  bold?: number;
+  color?: string;
+  right?: string;
+}>`
+  //background-color: #434141;
+  display: inline-block;
+  font-size: ${(props) => props.size};
+  margin-left: ${(props) => props.left};
+  height: ${(props) => props.height};
+  vertical-align: ${(props) => props.vertical};
+  font-weight: ${(props) => props.bold};
+  margin-top: 3px;
+  margin-right: ${(props) => props.right};
+`;
 
 function Keyword() {
-  /* useEffect(() => {
-    geturl();
+  const [state, setState] = useState(Array(20).fill({ Keyword: "" }));
+  const [onlykey, setKey] = useState(["key"]);
+  const [onlyfreq, setFreq] = useState([0]);
+  const [total, setTotal] = useState(0);
+  const [date, setDate] = useState([...Array(3).fill("")]);
+
+  useEffect(() => {
+    const now = new Date();
+    const year = "" + now.getFullYear();
+    const month = ("0" + (now.getMonth() + 1)).slice(-2);
+    const day = ("0" + now.getDate()).slice(-2);
+    setDate([year, month, day]);
   }, []);
-
-  async function geturl() {
-    axios.defaults.withCredentials = true;
-
-    await axios
-      .get(`/getKeyword`)
-      .then((response) => {
-        console.log("엥");
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  } */
 
   useEffect(() => {
     fetch(`/getKeyword`, {
@@ -250,16 +235,26 @@ function Keyword() {
     })
       .then((response) => response.json())
       .then((data) => {
-        //console.log(data);
+        setState(data);
+        data.map((item: any) => {
+          //console.log(item);
+          setKey((old) => [...old, item.keyword]);
+          setFreq((old) => [...old, Number(item.freq)]);
+          setTotal((old) => old + Number(item.freq));
+        });
       });
   }, []);
 
-  const [state, setState] = useState(testkeyword);
-  const [arr, setArr] = useState(sortFun(8));
+  useEffect(() => {
+    setArr({ keyword: onlykey.slice(1, 8), count: onlyfreq.slice(1, 8) });
+  }, [state]);
+
+  const [arr, setArr] = useState({
+    keyword: onlykey.slice(1, 8),
+    count: onlyfreq.slice(1, 8),
+  });
   const [check, setCheck] = useState([false, true, false]);
   const num = [3, 7, 15];
-  //console.log(state);
-  //console.log(arr);
 
   const Chart = () => (
     <ApexCharts
@@ -334,17 +329,111 @@ function Keyword() {
     <Wrapper>
       <RightBox>
         <KeywordBox>
-          <SimpleKeyword value={state} />
+          <>
+            <Wrapper2>
+              <Box>
+                <Content size="15px" left="3px" vertical="bottom">
+                  {state[15].keyword}
+                </Content>
+                <Content size="21px" vertical="bottom" left="10px">
+                  {state[7].keyword}
+                </Content>
+              </Box>
+              <Box>
+                <Content size="22px" vertical="bottom">
+                  {state[6].keyword}
+                </Content>
+                <Content
+                  size="30px"
+                  bold={500}
+                  height="38px"
+                  left="3px"
+                  vertical="top"
+                >
+                  {state[2].keyword}
+                </Content>
+                <Content size="17px" bold={400} left="7px" vertical="bottom">
+                  {state[12].keyword}
+                </Content>
+              </Box>
+              <Box>
+                <Content size="19px" bold={500} right="7px">
+                  {state[9].keyword}
+                </Content>
+                <Content size="16px" vertical="top">
+                  {state[13].keyword}
+                </Content>
+                <Content size="28px" bold={500} vertical="bottom" right="3px">
+                  {state[3].keyword}
+                </Content>
+                <Content size="34px" bold={500} height="46px" left="5px">
+                  {state[0].keyword}
+                </Content>
+                <Content size="20px" vertical="bottom" left="10px">
+                  {state[8].keyword}
+                </Content>
+              </Box>
+              <Box>
+                <Content size="16px" vertical="bottom" bold={400}>
+                  {state[14].keyword}
+                </Content>
+                <Content
+                  size="32px"
+                  height="40px"
+                  bold={500}
+                  left="3px"
+                  right="7px"
+                >
+                  {state[1].keyword}
+                </Content>
+                <Content
+                  size="17px"
+                  vertical="bottom"
+                  bold={400}
+                  left="3px"
+                  right="2px"
+                >
+                  {state[11].keyword}
+                </Content>
+                <Content size="24px" bold={500} left="2px">
+                  {state[5].keyword}
+                </Content>
+              </Box>
+              <Box>
+                <Content size="14px" vertical="top" left="15px" right="5px">
+                  {state[16].keyword}
+                </Content>
+                <Content
+                  size="26px"
+                  height="34px"
+                  vertical="bottom"
+                  left="4px"
+                  right="2px"
+                  bold={400}
+                >
+                  {state[4].keyword}
+                </Content>
+                <Content size="18px" left="4px">
+                  {state[10].keyword}
+                </Content>
+                <Content size="14px" left="10px" vertical="top">
+                  {state[17].keyword}
+                </Content>
+              </Box>
+            </Wrapper2>
+          </>
         </KeywordBox>
       </RightBox>
       <TopLeftBox>
         <Title>오늘의 키워드</Title>
         <NumNews>
-          전체키워드 <Num>1227</Num>
+          전체키워드 <Num>{total}</Num>
           <p>개</p>
         </NumNews>
         <Nownews>
-          <p>분석기준 </p>2022.11.21(월) 08:00 ~ 17:00
+          <p>분석기준 </p>
+          {date[0] + "년 " + date[1] + "월 " + date[2] + "일 "}
+          12:00
         </Nownews>
       </TopLeftBox>
 
@@ -365,7 +454,11 @@ function Keyword() {
             <Item
               onClick={() => {
                 setCheck([true, false, false]);
-                setArr(sortFun(num[0] + 1));
+                setArr({
+                  keyword: onlykey.slice(1, 4),
+                  count: onlyfreq.slice(1, 4),
+                });
+                //setArr(sortFun(num[0] + 1));
               }}
               active={check[0]}
             >
@@ -377,7 +470,11 @@ function Keyword() {
             <Item
               onClick={() => {
                 setCheck([false, true, false]);
-                setArr(sortFun(num[1] + 1));
+                setArr({
+                  keyword: onlykey.slice(1, 8),
+                  count: onlyfreq.slice(1, 8),
+                });
+                //setArr(sortFun(num[1] + 1));
               }}
               active={check[1]}
             >
@@ -389,7 +486,11 @@ function Keyword() {
             <Item
               onClick={() => {
                 setCheck([false, false, true]);
-                setArr(sortFun(num[2] + 1));
+                setArr({
+                  keyword: onlykey.slice(1, 16),
+                  count: onlyfreq.slice(1, 16),
+                });
+                //setArr(sortFun(num[2] + 1));
               }}
               active={check[2]}
             >

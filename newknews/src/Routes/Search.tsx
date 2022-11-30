@@ -8,7 +8,6 @@ function Search() {
 
   return (
     <>
-      <Header />
       <Search_bar search_content={location.state} />
     </>
   );

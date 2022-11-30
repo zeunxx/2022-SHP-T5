@@ -30,19 +30,53 @@ const Title = styled.p`
 `;
 
 export interface IProp {
-  index: number;
-  title: string;
-  url: string;
+  cluster_num: string;
+  subject: string;
+  headline: string;
+  content: string;
   press: string;
+  image_link: string;
+  news_link: string;
+  discuss: string;
 }
 
-const NowRank = (prop: IProp[]) => {
-  const [data, setData] = useState(prop);
+const NowRank = () => {
+  const [data, setData] = useState<IProp[]>([]);
+
   useEffect(() => {
-    //console.log(data);
-    Object.values(data).map((value, i) => {
-      //console.log(value);
-    });
+    let temp = [
+      {
+        cluster_num: "0",
+        subject: "test",
+        headline: "test",
+        content: "test",
+        press: "test",
+        image_link: "test",
+        news_link: "test",
+        discuss: "test",
+      },
+    ];
+    fetch(`/getNews`, {
+      method: "get",
+      headers: new Headers({
+        "ngrok-skip-browser-warning": "69420",
+        "User-Agent": "69420",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log(data.length / 10);
+        let count = 0;
+        data.map((item: any, index: any) => {
+          if (index % 10 === 0) {
+            //console.log(item);
+            temp = [...temp, item];
+          }
+          //console.log(temp);
+        });
+        //console.log(temp.slice(1));
+        setData(temp.slice(1));
+      });
   }, []);
 
   const settings = {
@@ -58,10 +92,10 @@ const NowRank = (prop: IProp[]) => {
 
   return (
     <Slider {...settings}>
-      {Object.values(data).map((value, i) => (
-        <Item key={i + 1}>
-          <Index>{value.index + ". "}</Index>
-          <Title>{value.title}</Title>
+      {data.map((item, index) => (
+        <Item key={index + 1}>
+          <Index>{String(index + 1) + ". "}</Index>
+          <Title>{item.headline}</Title>
         </Item>
       ))}
     </Slider>
