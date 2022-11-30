@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SimpleKeyword from "./SimpleKeyword";
 import ApexCharts from "react-apexcharts";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const Wrapper = styled.div`
   //background-color: #f5f5cb;
@@ -221,10 +222,41 @@ const sortFun = (num: number) => {
 };
 
 function Keyword() {
+  /* useEffect(() => {
+    geturl();
+  }, []);
+
+  async function geturl() {
+    axios.defaults.withCredentials = true;
+
+    await axios
+      .get(`/getKeyword`)
+      .then((response) => {
+        console.log("엥");
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } */
+
+  useEffect(() => {
+    fetch(`/getKeyword`, {
+      method: "get",
+      headers: new Headers({
+        "ngrok-skip-browser-warning": "69420",
+        "User-Agent": "69420",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        //console.log(data);
+      });
+  }, []);
+
   const [state, setState] = useState(testkeyword);
   const [arr, setArr] = useState(sortFun(8));
   const [check, setCheck] = useState([false, true, false]);
-
   const num = [3, 7, 15];
   //console.log(state);
   //console.log(arr);

@@ -15,6 +15,7 @@
     "axios": "^1.2.0",
     "framer-motion": "^7.6.5",
     "gh-pages": "^4.0.0",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
@@ -56,5 +57,6 @@
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
     "@types/styled-components": "^5.1.26"
-  }
+  },
+  "proxy": "https://fde6-210-106-232-212.jp.ngrok.io"
 }

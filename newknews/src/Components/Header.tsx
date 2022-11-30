@@ -1,12 +1,16 @@
 import styled from "styled-components";
 import NowRank from "../Slider/NowRank";
 import { Link, useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Wrapper = styled.div`
   margin: 0px auto;
   width: 1000px;
   min-width: 800px;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  background-color: white;
 `;
 
 const HdTop = styled.div`
@@ -98,11 +102,14 @@ const NewList = styled.div`
   overflow: hidden;
 `;
 
-interface IForm {
-  state: string;
+export interface IProp {
+  index: number;
+  title: string;
+  url: string;
+  press: string;
 }
 
-function Header() {
+function Header(prop: IProp[]) {
   const [state, setState] = useState("default");
   const ref = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
@@ -148,7 +155,7 @@ function Header() {
         </SearchBox>
 
         <NewList>
-          <NowRank />
+          <NowRank {...prop} />
         </NewList>
       </HdTop>
     </Wrapper>
