@@ -158,7 +158,7 @@ const Circle = styled(motion.div)<{ backcolor: boolean }>`
   cursor: pointer;
 `;
 
-/* export interface IProp {
+export interface IProp {
   cluster_num: string;
   subject: string;
   headline: string;
@@ -166,13 +166,26 @@ const Circle = styled(motion.div)<{ backcolor: boolean }>`
   press: string;
   image_link: string;
   news_link: string;
-} */
+  discuss: string;
+}
 
 function Issue() {
   const [num, setNum] = useState(8); // 초기값8, 클러스터링이 8개가 안되면 동적 생성
   const [now, setNow] = useState(0);
   const [issue, setIssue] = useState([true]);
   const [date, setDate] = useState([...Array(3).fill("")]);
+  const [state, setState] = useState<IProp[]>(
+    Array(10).fill({
+      cluster_num: "0",
+      subject: "",
+      headline: "",
+      content: "",
+      press: "",
+      image_link: "",
+      news_link: "",
+      discuss: "",
+    })
+  );
 
   useEffect(() => {
     const now = new Date();
@@ -183,12 +196,21 @@ function Issue() {
   }, []);
 
   useEffect(() => {
-    //console.log(prop);
-    //console.log(Object.keys(prop).length);
-    /* if (num > Object.keys(prop).length) {
-      setNum(Object.keys(prop).length);
-    } */
-    //console.log(num);
+    fetch(`/getNews`, {
+      method: "get",
+      headers: new Headers({
+        "ngrok-skip-browser-warning": "69420",
+        "User-Agent": "69420",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setState(data);
+        //console.log(data.length / 10);
+        if (num > data.length / 10) {
+          setNum(data.length / 10);
+        }
+      });
   }, []);
 
   useEffect(() => {
@@ -206,21 +228,14 @@ function Issue() {
     setIssue(check);
   }, [now]);
 
-  /* {Object.values(data).map((value, i) => (
-    <Item key={i + 1}>
-      <Index>{value.index + ". "}</Index>
-      <Title>{value.title}</Title>
-    </Item>
-  ))} */
-
   return (
     <>
       <Wrapper>
         <Title>오늘의 이슈</Title>
         <NumNews>
-          분석뉴스 <Num>1200</Num>
+          이슈분류 <Num>{Number(state[state.length - 1].cluster_num)}+α</Num>
           <p>건</p>
-          의견분류 <Num>{num}</Num>
+          의견분류 <Num>{state.length / 10}</Num>
           <p>건</p>
         </NumNews>
         <Nownews>
@@ -229,25 +244,24 @@ function Issue() {
           12:00
         </Nownews>
         <BoxWrapper>
-          <Box whileHover="hover" variants={BoxVariant}>
-            <Img bgphoto="https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202211/08/moneytoday/20221108144626291fpmm.jpg">
-              <h1>
-                대통령경호처, 용산 이전으로 기동대 추가? "집회 대비한 배치"
-              </h1>
-              <p>머니투데이</p>
-            </Img>
-            <MiniHeader bgcolor="#0475E6">이 슈</MiniHeader>
-          </Box>
-          <Box whileHover="hover" variants={BoxVariant}>
-            <Img bgphoto="https://img2.daumcdn.net/thumb/R658x0.q70/?fname=https://t1.daumcdn.net/news/202211/08/chosunbiz/20221108143726898vrrk.jpg">
-              <h1>
-                이태원 ‘사고’냐 ‘참사’냐… 與野, 대통령실 국정감사서 불붙은 용어
-                논쟁
-              </h1>
-              <p>조선비즈</p>
-            </Img>
-            <MiniHeader bgcolor="#E67404">다른 의견</MiniHeader>
-          </Box>
+          <a href={state[now * 10].news_link} target="_blank">
+            <Box whileHover="hover" variants={BoxVariant}>
+              <Img bgphoto={state[now * 10].image_link}>
+                <h1>{state[now * 10].headline}</h1>
+                <p>{state[now * 10].press}</p>
+              </Img>
+              <MiniHeader bgcolor="#0475E6">이 슈</MiniHeader>
+            </Box>
+          </a>
+          <a href={state[now * 10 + 9].news_link} target="_blank">
+            <Box whileHover="hover" variants={BoxVariant}>
+              <Img bgphoto={state[now * 10 + 9].image_link}>
+                <h1>{state[now * 10 + 9].headline}</h1>
+                <p>{state[now * 10 + 9].press}</p>
+              </Img>
+              <MiniHeader bgcolor="#E67404">다른 의견</MiniHeader>
+            </Box>
+          </a>
           <Side>
             <img src="img/preview.png" />
           </Side>
