@@ -1,26 +1,26 @@
 import styled from "styled-components";
 import { useEffect,useState } from "react";
 
+
 const NewsWrapper = styled.div`
   width: 1000px;
   min-width: 800px;
   text-align: center;
   margin: 0px auto;
 `;
-// const ClusterNews = styled.div`
-//   width: 1004px;
-//   border: 2px solid black;
-// `;
 const PositiveNews = styled.div`
   width: 500px;
-  background-color: #DCDCDC;
-  padding: 20px;
-`;
-const NegativeNews = styled.div`
-  width: 500px;
+  height: 100px;
   background-color: #DCDCDC;
   padding: 20px;
   float: left;
+`;
+const NegativeNews = styled.div`
+  width: 500px;
+  height: 100px;
+  background-color: #CDCDCD;
+  padding: 20px;
+  float: right;
 `;
 const EachNews = styled.div`
 	width: 500px;
@@ -64,52 +64,57 @@ function News() {
         setData(data);
       });
   }, []);
-  console.log(data)
+    
+  const [lineCount, setCount] = useState(1);
+  useEffect(() => {
+
+  },[lineCount])
 
   return (
     <>
-			<NewsWrapper>        
-        {data.map((item: any) => (          
-//             <>
-//               <div>{
-//               item.cluster_num === "1" ?
-//                 <h1>넘버 1</h1> 
-//                 : 
-//                 <h1>넘버1이 아닙니다</h1>
-//               }</div>
-              <EachNews>
-              <EachNewsTitle>
-                <p>{item.press}</p>
-                <a href={item.news_link} target='_blank'>{item.headline}</a>
-              </EachNewsTitle>
-              <EachNewsImg>
-                <img src={item.image_link} />
-              </EachNewsImg>
-            </EachNews>
-//             </>
+			<NewsWrapper>
+        {data.map((item: any) => (                               
+          <>
+            <div>
+              {
+                item.discuss==="1"?                  
+                  <PositiveNews>
+                    <EachNewsTitle>
+                      <p>긍정</p>
+                      <p>{item.press}</p>
+                      <a href={item.news_link} target='_blank'>{item.headline}</a>
+                    </EachNewsTitle>
+                    <EachNewsImg>
+                      <img src={item.image_link} />
+                    </EachNewsImg>
+                  </PositiveNews>
+                :
+                  <NegativeNews>
+                    <EachNewsTitle>
+                      <p>부정</p>
+                      <p>{item.press}</p>
+                      <a href={item.news_link} target='_blank'>{item.headline}</a>
+                    </EachNewsTitle>
+                    <EachNewsImg>
+                      <img src={item.image_link} />
+                    </EachNewsImg>
+                  </NegativeNews>
+              }
+            </div>
+          </>
+        //   <PositiveNews>
+        //   <EachNewsTitle>
+        //     <p>{item.press}</p>
+        //     <a href={item.news_link} target='_blank'>{item.headline}</a>
+        //   </EachNewsTitle>
+        //   <EachNewsImg>
+        //     <img src={item.image_link} />
+        //   </EachNewsImg>
+        // </PositiveNews>                                      
       ))}        
 			</NewsWrapper>
     </>
   );
 }
-
-const junkData = [
-  {
-    headline: "",
-    discuss: 1,
-    press: "",
-    news_link: "",
-    image_link: "",
-  },
-  {
-    headline: "",
-    discuss: 1,
-    press: "",
-    news_link: "",
-    image_link: "",
-  }
-  
-
-];
 
 export default News;
