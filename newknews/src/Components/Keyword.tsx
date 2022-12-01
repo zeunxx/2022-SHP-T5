@@ -254,6 +254,7 @@ function Keyword() {
     count: onlyfreq.slice(1, 8),
   });
   const [check, setCheck] = useState([false, true, false]);
+
   const num = [3, 7, 15];
 
   const Chart = () => (
@@ -314,7 +315,7 @@ function Keyword() {
             },
           },
         },
-        colors: Array(arr.keyword.length).fill("#0364C5"),
+        //colors: Array(10).fill("orange"),
       }}
       series={[
         {
