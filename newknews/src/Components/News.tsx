@@ -70,14 +70,14 @@ function News() {
     <>
 			<NewsWrapper>        
         {data.map((item: any) => (          
-            <>
-              <div>{
-              item.cluster_num === "1" ?
-                <h1>넘버 1</h1> 
-                : 
-                <h1>넘버1이 아닙니다</h1>
-              }</div>
-              {/* <EachNews>
+//             <>
+//               <div>{
+//               item.cluster_num === "1" ?
+//                 <h1>넘버 1</h1> 
+//                 : 
+//                 <h1>넘버1이 아닙니다</h1>
+//               }</div>
+              <EachNews>
               <EachNewsTitle>
                 <p>{item.press}</p>
                 <a href={item.news_link} target='_blank'>{item.headline}</a>
@@ -85,8 +85,8 @@ function News() {
               <EachNewsImg>
                 <img src={item.image_link} />
               </EachNewsImg>
-            </EachNews> */}
-            </>
+            </EachNews>
+//             </>
       ))}        
 			</NewsWrapper>
     </>
