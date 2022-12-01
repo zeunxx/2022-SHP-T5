@@ -345,6 +345,7 @@ const Clustering = () => {
   }, []);
 
   //console.log(keyword);
+  console.log(num);
 
   return (
     <>
@@ -416,7 +417,10 @@ const Clustering = () => {
                 type="bar"
                 options={{
                   xaxis: {
-                    categories: keyword?.[box].keyword.slice(1, 4),
+                    categories: keyword?.[Number(num[box]) - 1]?.keyword.slice(
+                      1,
+                      4
+                    ),
                   },
                   yaxis: {
                     show: false,
@@ -431,7 +435,7 @@ const Clustering = () => {
                 series={[
                   {
                     name: "키워드 수",
-                    data: keyword?.[box].count.slice(1, 4),
+                    data: keyword?.[Number(num[box]) - 1]?.count.slice(1, 4),
                   },
                 ]}
               ></ApexCharts>

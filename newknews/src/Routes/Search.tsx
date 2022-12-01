@@ -112,7 +112,6 @@ const BoxWrapper = styled.div`
 
 const Headline = styled.div`
   font-weight: bold;
-
   font-size: 20px;
   margin-left: 10px;
   vertical-align: middle;
@@ -185,8 +184,95 @@ function Search(props: any) {
 
   return (
     <>
-      <Header />
-      {/* <Search_bar search_content={location.state} /> */}
+      <Wrapper>
+        <HdTop>
+          <Logo>
+            <Link to="/">
+              <img src="img/logo_blue.png" />
+            </Link>
+          </Logo>
+
+          <SearchBox>
+            <Bar
+              placeholder={location.state}
+              ref={ref}
+              onChange={() => {
+                setState(ref.current?.value + "");
+              }}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault(); //페이지 갱신 안되도록
+                  setState(ref.current?.value + "");
+                  navigate("/Search", { state: state });
+                  window.location.reload();
+                }
+              }}
+            />
+            <SearchBtn>
+              <Link to="/Search" state={state}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
+                </svg>
+              </Link>
+            </SearchBtn>
+
+            <SearchHp>
+              <Icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM169.8 165.3c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM288 352c0 17.7-14.3 32-32 32s-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32z" />
+              </Icon>
+              <p>검색도움말</p>
+            </SearchHp>
+          </SearchBox>
+        </HdTop>
+
+        <Box>
+          <span
+            style={{
+              fontWeight: "bold",
+              fontSize: "x-large",
+              color: "#0475e6",
+            }}
+          >
+            {location.state}
+          </span>{" "}
+          뉴스 검색 결과{" "}
+          <span style={{ fontWeight: "bold", fontSize: "large" }}>
+            {data.listNews.length}
+          </span>
+          건입니다.
+        </Box>
+        <div>
+          <ul>
+            {data.listNews.map((item) => (
+              <li>
+                <BoxWrapper>
+                  <div>
+                    <a href={item["news_link"]} target="_blank">
+                      <TestBox url={item["image_link"]}></TestBox>
+                    </a>
+                  </div>
+                  <div>
+                    <Headline>
+                      <a href={item["news_link"]} target="_blank">
+                        {item["headline"]}
+                      </a>{" "}
+                    </Headline>
+
+                    <Content>{item["content"]}</Content>
+                  </div>
+                  <div>
+                    <Press>{item["press"]}</Press>
+                  </div>
+
+                  <div>
+                    <Subject>{item["subject"]}</Subject>
+                  </div>
+                </BoxWrapper>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Wrapper>
     </>
   );
 }
