@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   width: 1000px;
   margin: 0px auto;
   min-width: 800px;
-  margin-bottom: 300px;
   position: relative;
 `;
 
@@ -315,7 +314,7 @@ function Keyword() {
             },
           },
         },
-        //colors: Array(10).fill("orange"),
+        colors: Array(arr.keyword.length).fill("#0364C5"),
       }}
       series={[
         {
