@@ -267,7 +267,7 @@ function Issue() {
           </Side>
         </BoxWrapper>
         <Bar>
-          <Link to="/Detail">
+          <Link to="/">
             <span>홈페이지 보기 〉</span>
           </Link>
           {issue.map((i, index) => (
