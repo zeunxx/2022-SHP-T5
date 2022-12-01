@@ -59,6 +59,6 @@
     "@types/react-slick": "^0.23.10",
     "@types/styled-components": "^5.1.26"
   },
-  "proxy":"https://4827-182-222-169-20.jp.ngrok.io"
+  "proxy":"https://aa0f-182-222-169-20.jp.ngrok.io"
   
 }
