@@ -263,7 +263,9 @@ function Issue() {
             </Box>
           </a>
           <Side>
-            <img src="img/preview.png" />
+            <a href="https://github.com/AttBHtBt/2022-SHP-T5" target="_blank">
+              <img src="img/preview.png" />
+            </a>
           </Side>
         </BoxWrapper>
         <Bar>
