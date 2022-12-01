@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SimpleKeyword from "./SimpleKeyword";
 import ApexCharts from "react-apexcharts";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const Wrapper = styled.div`
   //background-color: #f5f5cb;
@@ -105,6 +106,7 @@ const Item = styled.div<{ active: boolean }>`
     &:hover {
       background-color: #e2e8f3;
     }
+    cursor: pointer;
   }
   span {
     font-size: 13px;
@@ -220,10 +222,24 @@ const sortFun = (num: number) => {
 };
 
 function Keyword() {
+  useEffect(() => {
+    fetch(`/getKeyword`, {
+      method: "get",
+      headers: new Headers({
+        "ngrok-skip-browser-warning": "69420",
+        "User-Agent": "69420",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("엥");
+        console.log(data);
+      });
+  }, []);
+
   const [state, setState] = useState(testkeyword);
   const [arr, setArr] = useState(sortFun(8));
   const [check, setCheck] = useState([false, true, false]);
-
   const num = [3, 7, 15];
   //console.log(state);
   //console.log(arr);
@@ -286,7 +302,7 @@ function Keyword() {
             },
           },
         },
-        //colors: Array(10).fill("orange"),
+        colors: Array(arr.keyword.length).fill("#0364C5"),
       }}
       series={[
         {

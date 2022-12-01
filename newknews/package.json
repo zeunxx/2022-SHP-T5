@@ -13,8 +13,10 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "axios": "^1.2.0",
+    "cors": "^2.8.5",
     "framer-motion": "^7.6.5",
     "gh-pages": "^4.0.0",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-dom": "^18.2.0",
@@ -56,5 +58,7 @@
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
     "@types/styled-components": "^5.1.26"
-  }
+  },
+  "proxy":"https://4827-182-222-169-20.jp.ngrok.io"
+  
 }

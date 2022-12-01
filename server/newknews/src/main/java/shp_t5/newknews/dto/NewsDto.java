@@ -7,10 +7,16 @@ import lombok.Data;
 @Data
 @ApiModel(value = "뉴스 정보", description = "기사 분류, 헤드라인, 링크, 찬반여부, 찬반여부 true면 어떤측면인지 요소를 가진 Domain Class")
 public class NewsDto {
+    @ApiModelProperty(value = "클러스터링 분류")
+    public String cluster_num;
     @ApiModelProperty(value = "기사 분류")
-    public String cluster_num; // 기사 분류 ex 정치, 문화 ..
+    public String subject; // 기사 분류 ex 정치, 문화 ..
     @ApiModelProperty(value = "기사 헤드라인")
     public String headline; // 기사 헤드라인
+
+    @ApiModelProperty(value = "기사 내용")
+    public String content; // 기사 헤드라인
+
     @ApiModelProperty(value = "언론사")
     public String press;
     @ApiModelProperty(value = "이미지 링크")
@@ -20,9 +26,12 @@ public class NewsDto {
     @ApiModelProperty(value = "긍부정")
     public String discuss;
 
-    public NewsDto(String cluster_num, String headline, String press, String image_link, String news_link, String discuss) {
+
+    public NewsDto(String cluster_num, String subject, String headline, String content, String press, String image_link, String news_link, String discuss) {
         this.cluster_num = cluster_num;
+        this.subject = subject;
         this.headline = headline;
+        this.content = content;
         this.press = press;
         this.image_link = image_link;
         this.news_link = news_link;

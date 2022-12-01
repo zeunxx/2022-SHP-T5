@@ -2,6 +2,7 @@ package shp_t5.newknews.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import shp_t5.newknews.dto.KeywordDto;
 
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -16,13 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @RestController
 @Api(tags = {"Keyword API"})
-@CrossOrigin(origins="http://localhost:3000", methods={RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins="*", methods={RequestMethod.GET, RequestMethod.POST})
 public class KeywordController {
     List<KeywordDto> listKeywordDto = new ArrayList<>();
     KeywordController() throws IOException {
-        File keywordcsv = new File("C:\\Users\\82105\\OneDrive\\바탕 화면\\산협프 newknews\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\today_keyword.csv");
+        File keywordcsv = new File("C:\\Users\\82105\\OneDrive\\바탕 화면\\산협프 newknews\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\todays_keyword2.csv");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(keywordcsv),"UTF-8"));
         Charset.forName("UTF-8");
@@ -36,12 +39,13 @@ public class KeywordController {
             listKeywordDto.add(keywordDto);
         }
 
-
     }
 
     @ApiOperation(value = "키워드 전송", notes = "키워드 csv파일에서 우선순위와 키워드를 제공하는 API입니다.")
-    @GetMapping("getKeyword")
+    @GetMapping("/getKeyword")
     public List<KeywordDto> getKeyword(){
+        System.out.println("키워드 ");
+
         return listKeywordDto;
     }
 
