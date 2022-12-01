@@ -1,12 +1,16 @@
 import styled from "styled-components";
 import NowRank from "../Slider/NowRank";
 import { Link, useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Wrapper = styled.div`
   margin: 0px auto;
   width: 1000px;
   min-width: 800px;
+  z-index: 1;
+  position: sticky;
+  top: 0;
+  background-color: white;
 `;
 
 const HdTop = styled.div`
@@ -97,10 +101,6 @@ const NewList = styled.div`
   margin-right: 10px;
   overflow: hidden;
 `;
-
-interface IForm {
-  state: string;
-}
 
 function Header() {
   const [state, setState] = useState("default");
