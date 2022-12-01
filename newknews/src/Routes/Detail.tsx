@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import Header from "../Components/Header";
-import IssueDetail from "../Components/IssueDetail";
 import News from "../Components/News";
 
 const Wrapper = styled.div`
@@ -18,8 +17,7 @@ const Title = styled.h1`
 function Detail() {
   return (
     <>
-    <Header />
-    <IssueDetail />
+    <Header />   
     <Wrapper>
       <Title>전체기사</Title>
     </Wrapper>
