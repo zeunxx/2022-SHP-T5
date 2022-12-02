@@ -44,10 +44,11 @@ const EachNewsImg = styled.div`
 	}
 `;
 const Line = styled.div`
-  width: 1000px;
+  width: 500px;
   float: left;
-  height: 5px;
+  height: 1px;
   background-color: black;
+  z-index: 2;
 `
 
 function News() {
@@ -67,18 +68,23 @@ function News() {
   }, []);
 
   const [newsCount,setCount] = useState(1);
+  useEffect(() => {
+    setCount(newsCount+1);
+    console.log(newsCount);
+  },[]) 
+  
+  
 
   return (
     <>      
-			<NewsWrapper>
-        <Line></Line>
+			<NewsWrapper>        
         <PositiveNews>
           {data.map((item: any) => (                               
             <>
               <div>
                 {
-                  item.discuss==="1"?
-                    <EachNews>
+                  item.discuss==="1"?                    
+                    <><EachNews>
                       <EachNewsTitle>
                         <p>긍정</p>
                         <p>{item.press}</p>
@@ -86,12 +92,17 @@ function News() {
                       </EachNewsTitle>
                       <EachNewsImg>
                         <img src={item.image_link} />
-                      </EachNewsImg>                      
-                    </EachNews>                    
+                      </EachNewsImg>
+                    </EachNews><Line></Line></>                    
                   :
                     null
                 }
-              </div>              
+              </div>   
+              {/* <div>
+                {
+                  newsCount%10==2 ? <Line></Line> : null
+                }
+              </div>             */}
             </>                                     
           ))}
         </PositiveNews>
@@ -101,22 +112,24 @@ function News() {
               <div>
                 {
                   item.discuss==="0"?
-                    <EachNews>
-                      <EachNewsTitle>
-                        <p>부정</p>
-                        <p>{item.press}</p>
-                        <a href={item.news_link} target='_blank'>{item.headline}</a>
-                      </EachNewsTitle>
-                      <EachNewsImg>
-                        <img src={item.image_link} />
-                      </EachNewsImg>
-                    </EachNews>
+                    <><EachNews>
+                    <EachNewsTitle>
+                      <p>부정</p>
+                      <p>{item.press}</p>
+                      <a href={item.news_link} target='_blank'>{item.headline}</a>
+                    </EachNewsTitle>
+                    <EachNewsImg>
+                      <img src={item.image_link} />
+                    </EachNewsImg>
+                  </EachNews><Line></Line></>
                   :
                     null
                 }
               </div>
               <div>
-
+                {
+                  // newsCount%10===2 ? <Line></Line> : null
+                }
               </div>              
             </>                                                 
           ))}
