@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useEffect,useState } from "react";
 
-
 const NewsWrapper = styled.div`
   width: 1000px;
   min-width: 800px;
@@ -10,22 +9,18 @@ const NewsWrapper = styled.div`
 `;
 const PositiveNews = styled.div`
   width: 500px;
-  height: 100px;
   background-color: #DCDCDC;
-  padding: 20px;
   float: left;
 `;
 const NegativeNews = styled.div`
   width: 500px;
-  height: 100px;
-  background-color: #CDCDCD;
-  padding: 20px;
+  background-color: #CDCDCD;  
   float: right;
 `;
 const EachNews = styled.div`
 	width: 500px;
 	height: 100px;
-	background-color: #DCDCDC;
+	// background-color: #DCDCDC;
 	float: left;
 	padding: 20px;
 `;
@@ -48,6 +43,12 @@ const EachNewsImg = styled.div`
 		height: auto;
 	}
 `;
+const Line = styled.div`
+  width: 1000px;
+  float: left;
+  height: 5px;
+  background-color: black;
+`
 
 function News() {
   const [data, setData]: any = useState([]);
@@ -64,54 +65,62 @@ function News() {
         setData(data);
       });
   }, []);
-    
-  const [lineCount, setCount] = useState(1);
-  useEffect(() => {
 
-  },[lineCount])
+  const [newsCount,setCount] = useState(1);
 
   return (
-    <>
+    <>      
 			<NewsWrapper>
+        <Line></Line>
+        <PositiveNews>
+          {data.map((item: any) => (                               
+            <>
+              <div>
+                {
+                  item.discuss==="1"?
+                    <EachNews>
+                      <EachNewsTitle>
+                        <p>긍정</p>
+                        <p>{item.press}</p>
+                        <a href={item.news_link} target='_blank'>{item.headline}</a>
+                      </EachNewsTitle>
+                      <EachNewsImg>
+                        <img src={item.image_link} />
+                      </EachNewsImg>                      
+                    </EachNews>                    
+                  :
+                    null
+                }
+              </div>              
+            </>                                     
+          ))}
+        </PositiveNews>
+        <NegativeNews>
         {data.map((item: any) => (                               
-          <>
-            <div>
-              {
-                item.discuss==="1"?                  
-                  <PositiveNews>
-                    <EachNewsTitle>
-                      <p>긍정</p>
-                      <p>{item.press}</p>
-                      <a href={item.news_link} target='_blank'>{item.headline}</a>
-                    </EachNewsTitle>
-                    <EachNewsImg>
-                      <img src={item.image_link} />
-                    </EachNewsImg>
-                  </PositiveNews>
-                :
-                  <NegativeNews>
-                    <EachNewsTitle>
-                      <p>부정</p>
-                      <p>{item.press}</p>
-                      <a href={item.news_link} target='_blank'>{item.headline}</a>
-                    </EachNewsTitle>
-                    <EachNewsImg>
-                      <img src={item.image_link} />
-                    </EachNewsImg>
-                  </NegativeNews>
-              }
-            </div>
-          </>
-        //   <PositiveNews>
-        //   <EachNewsTitle>
-        //     <p>{item.press}</p>
-        //     <a href={item.news_link} target='_blank'>{item.headline}</a>
-        //   </EachNewsTitle>
-        //   <EachNewsImg>
-        //     <img src={item.image_link} />
-        //   </EachNewsImg>
-        // </PositiveNews>                                      
-      ))}        
+            <>
+              <div>
+                {
+                  item.discuss==="0"?
+                    <EachNews>
+                      <EachNewsTitle>
+                        <p>부정</p>
+                        <p>{item.press}</p>
+                        <a href={item.news_link} target='_blank'>{item.headline}</a>
+                      </EachNewsTitle>
+                      <EachNewsImg>
+                        <img src={item.image_link} />
+                      </EachNewsImg>
+                    </EachNews>
+                  :
+                    null
+                }
+              </div>
+              <div>
+
+              </div>              
+            </>                                                 
+          ))}
+        </NegativeNews>        
 			</NewsWrapper>
     </>
   );
