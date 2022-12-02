@@ -6,11 +6,13 @@ from collections import Counter
 
 all_keywords = []
 
-for x in range(11):  # 클러스터 개수만큼 반복 (수정예정)
-    df = pd.read_csv('clustered_article_for_keyword_count.csv', header=None, nrows=500,
-                     names=['cluster_num', 'title', 'content', 'url'])  # csv 읽음
-    df.drop_duplicates(['title'], ignore_index=True, inplace=True)
-    df.drop_duplicates(['content'], ignore_index=True, inplace=True)
+df = pd.read_csv('clustered_article_221130_650.csv', header=None, nrows=5000,
+                 names=['cluster_num', 'category', 'title', 'content', 'company_name', 'thumbnail', 'url'])  # csv 읽음
+
+cluster_num = int(df.tail(n=1)['cluster_num'])
+for x in range(cluster_num):  # 클러스터 개수만큼 반복 (수정예정)
+    df = pd.read_csv('clustered_article_221130_650.csv', header=None, nrows=5000,
+                     names=['cluster_num', 'category', 'title', 'content', 'company_name', 'thumbnail', 'url'])  # csv 읽음
     df = df[df['cluster_num'] == x]
     okt = Okt()
     drop_index_list = []
