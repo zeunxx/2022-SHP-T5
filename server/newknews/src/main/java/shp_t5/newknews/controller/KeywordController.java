@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class KeywordController {
     List<KeywordDto> listKeywordDto = new ArrayList<>();
     KeywordController() throws IOException {
-        File keywordcsv = new File("C:\\Users\\82105\\OneDrive\\바탕 화면\\산협프 newknews\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\todays_keyword2.csv");
+        File keywordcsv = new File("C:\\Users\\82105\\OneDrive\\바탕 화면\\산협프 newknews\\2022-SHP-T5\\server\\newknews\\src\\main\\resources\\csv\\todays_keyword221202.csv");
 
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(keywordcsv),"UTF-8"));
         Charset.forName("UTF-8");
@@ -44,7 +44,7 @@ public class KeywordController {
     @ApiOperation(value = "키워드 전송", notes = "키워드 csv파일에서 우선순위와 키워드를 제공하는 API입니다.")
     @GetMapping("/getKeyword")
     public List<KeywordDto> getKeyword(){
-        System.out.println("키워드 ");
+//        System.out.println("키워드 ");
 
         return listKeywordDto;
     }
