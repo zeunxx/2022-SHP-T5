@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import Header from "../Components/Header";
 import IssueDetail from "../Components/IssueDetail";
 import News from "../Components/News";
