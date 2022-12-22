@@ -49,8 +49,8 @@
 
 <Br>
 
-#### api 명세
-
+#### ➕ api 
+<img width="522" alt="image" src="https://user-images.githubusercontent.com/81572478/209113005-fceac708-9ad5-459e-897d-fc1b1db10102.png">
 
 <br>
 
