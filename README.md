@@ -31,13 +31,14 @@
 ### 🔎 역할
 
 1. 프론트 및 서버
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/81572478/209095732-aaa0861b-a1ab-44b2-897c-63f56add77b1.png">
+<img  alt="image" src="https://user-images.githubusercontent.com/81572478/209095732-aaa0861b-a1ab-44b2-897c-63f56add77b1.png" width="600" height="250">
 
 2. 데이터
-<img width="488" alt="image" src="https://user-images.githubusercontent.com/81572478/209095408-451f8f58-b000-4ef6-ba20-e7dd4e762ae5.png">
+<img  alt="image" src="https://user-images.githubusercontent.com/81572478/209095408-451f8f58-b000-4ef6-ba20-e7dd4e762ae5.png"  width="600" height="300">
+
 
 3. 팀 역할
-<img width="428" alt="image" src="https://user-images.githubusercontent.com/81572478/209095642-82147749-569d-4bbf-9eec-9079d9dfa15a.png">
+<img alt="image" src="https://user-images.githubusercontent.com/81572478/209095642-82147749-569d-4bbf-9eec-9079d9dfa15a.png" width="600" height="300">
 
 <br>
 
