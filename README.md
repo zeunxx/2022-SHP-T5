@@ -2,6 +2,10 @@
 
 2022년 2학기 건국대학교 산학협력프로젝트 과목 팀프로젝트
 
+#### 개인적 회고록 - 노션
+
+https://lopsided-acorn-81e.notion.site/2022-newknews-c18e923ec0e04d13a85f056874bc3892
+
 <br>
 
 ## NewKnews
@@ -87,7 +91,4 @@
 
 <br>
 
-#### 개인적 회고록
-
-https://lopsided-acorn-81e.notion.site/2022-newknews-c18e923ec0e04d13a85f056874bc3892
 
