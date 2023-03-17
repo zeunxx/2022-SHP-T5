@@ -73,7 +73,7 @@ https://lopsided-acorn-81e.notion.site/2022-newknews-c18e923ec0e04d13a85f056874b
 - 최종 결과물 동작 영상 데모는 ppt에서 확인 가능
 
 - ppt
-[codingDive_프로젝트 최종결과.pptx](https://github.com/zeunxx/2022-SHP-T5/files/10285459/codingDive_.pptx)
+[codingDive_프로젝트 최종결과.pptx](https://github.com/zeunxx/2022-SHP-T5/files/10999682/codingDive_.pptx)
 
 - 논문
 [codingDive_프로젝트 최종결과.pdf](https://github.com/zeunxx/2022-SHP-T5/files/10285551/codingDive_.pdf)
